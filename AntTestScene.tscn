@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cikrmnmew8pgq"]
+[gd_scene load_steps=18 format=3 uid="uid://cikrmnmew8pgq"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_4gbis"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/PlayerAnt.gd" id="2_e4s6w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dfl5mrth5ncsi" path="res://Art/EvilANT.png" id="7_6jqbe"]
 [ext_resource type="Script" uid="uid://bt36nbe4br3r4" path="res://Scripts/AxisAnt.gd" id="8_7rwyu"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/AntDisconnector.gd" id="8_lc7ml"]
+[ext_resource type="Script" uid="uid://uhmqiy81ivls" path="res://Scripts/TankAnt.gd" id="9_j3u5q"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="9_lc7ml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
@@ -82,6 +83,17 @@ texture_filter = 3
 texture = ExtResource("7_6jqbe")
 
 [node name="Collision" type="CollisionShape2D" parent="AxisAnt"]
+shape = SubResource("RectangleShape2D_e4s6w")
+
+[node name="TankAnt" type="CharacterBody2D" parent="."]
+position = Vector2(-100, 122)
+script = ExtResource("9_j3u5q")
+
+[node name="Visual" type="Sprite2D" parent="TankAnt"]
+texture_filter = 3
+texture = ExtResource("7_6jqbe")
+
+[node name="Collision" type="CollisionShape2D" parent="TankAnt"]
 shape = SubResource("RectangleShape2D_e4s6w")
 
 [node name="AntDisconnector" type="Area2D" parent="."]
