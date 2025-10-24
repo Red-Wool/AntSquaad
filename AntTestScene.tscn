@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dfl5mrth5ncsi" path="res://Art/EvilANT.png" id="7_6jqbe"]
 [ext_resource type="Script" uid="uid://bt36nbe4br3r4" path="res://Scripts/AxisAnt.gd" id="8_7rwyu"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/AntDisconnector.gd" id="8_lc7ml"]
-[ext_resource type="Script" uid="uid://uhmqiy81ivls" path="res://Scripts/TankAnt.gd" id="9_j3u5q"]
+[ext_resource type="Script" path="res://Scripts/TankAnt.gd" id="9_j3u5q"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="9_lc7ml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]

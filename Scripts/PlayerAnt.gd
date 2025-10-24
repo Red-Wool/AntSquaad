@@ -33,7 +33,7 @@ func _physics_process(delta):
 		var ant_signal : AntSignal = ant_signal_prefab.instantiate()
 		add_sibling(ant_signal)
 		ant_signal.global_position = global_position
-		ant_signal._trigger_signal(self)
+		ant_signal._trigger_signal(self, 200, .5)
 
 func _connect_ant(ant : Ant):
 	if !ant_movement.is_connected(ant._connected_movement):
