@@ -1,20 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cikrmnmew8pgq"]
+[gd_scene load_steps=13 format=3 uid="uid://cikrmnmew8pgq"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_4gbis"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/PlayerAnt.gd" id="2_e4s6w"]
 [ext_resource type="Texture2D" uid="uid://q8ou2jprt3kj" path="res://Art/THEANT.png" id="3_2mfu8"]
 [ext_resource type="Texture2D" uid="uid://d25hbvetof7de" path="res://Art/otherANT.png" id="4_2mfu8"]
 [ext_resource type="Script" uid="uid://dd6cvtheif6h8" path="res://Scripts/Ant.gd" id="4_b0c0c"]
-[ext_resource type="Script" uid="uid://cp625cyfiy0w1" path="res://Scripts/EvilAnt.gd" id="6_b0c0c"]
-[ext_resource type="Texture2D" uid="uid://dfl5mrth5ncsi" path="res://Art/EvilANT.png" id="7_6jqbe"]
-[ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/AntDisconnector.gd" id="8_lc7ml"]
-[ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="9_lc7ml"]
+[ext_resource type="Texture2D" uid="uid://bv5jxjvundcx1" path="res://Art/AntSignal.png" id="5_thpdj"]
+[ext_resource type="Script" uid="uid://dkuu1bfal25os" path="res://AntSignal.gd" id="5_tr7fb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(80, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rwyu"]
-size = Vector2(128, 128)
 
 [sub_resource type="Gradient" id="Gradient_thpdj"]
 
@@ -26,6 +21,8 @@ height = 100
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0c0c"]
 size = Vector2(100, 100)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mfu8"]
+
 [node name="AntTestScene" type="Node2D"]
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -33,7 +30,7 @@ script = ExtResource("1_4gbis")
 
 [node name="PlayerAnt" type="CharacterBody2D" parent="."]
 script = ExtResource("2_e4s6w")
-speed = 20000.0
+speed = 500000.0
 max_speed_range = 100.0
 
 [node name="Visual" type="Sprite2D" parent="PlayerAnt"]
@@ -54,29 +51,6 @@ texture = ExtResource("4_2mfu8")
 [node name="Collision" type="CollisionShape2D" parent="Ant"]
 shape = SubResource("RectangleShape2D_e4s6w")
 
-[node name="EvilAnt" type="CharacterBody2D" parent="."]
-position = Vector2(-390, 84)
-script = ExtResource("6_b0c0c")
-
-[node name="Visual" type="Sprite2D" parent="EvilAnt"]
-texture_filter = 3
-texture = ExtResource("7_6jqbe")
-
-[node name="Collision" type="CollisionShape2D" parent="EvilAnt"]
-shape = SubResource("RectangleShape2D_e4s6w")
-
-[node name="AntDisconnector" type="Area2D" parent="."]
-position = Vector2(-273, -111)
-script = ExtResource("8_lc7ml")
-
-[node name="Collision" type="CollisionShape2D" parent="AntDisconnector"]
-shape = SubResource("RectangleShape2D_7rwyu")
-
-[node name="Visual" type="Sprite2D" parent="AntDisconnector"]
-texture_filter = 3
-texture = ExtResource("9_lc7ml")
-region_rect = Rect2(0, 13.5, 195, 64)
-
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(126, -86)
 
@@ -86,4 +60,17 @@ texture = SubResource("GradientTexture2D_tr7fb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_b0c0c")
 
-[connection signal="body_entered" from="AntDisconnector" to="AntDisconnector" method="_on_body_entered"]
+[node name="AntSignal" type="Area2D" parent="."]
+position = Vector2(-286, -154)
+script = ExtResource("5_tr7fb")
+
+[node name="Collision" type="CollisionShape2D" parent="AntSignal"]
+shape = SubResource("CircleShape2D_2mfu8")
+
+[node name="Visual" type="Sprite2D" parent="AntSignal"]
+texture_filter = 3
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("5_thpdj")
+region_rect = Rect2(0, 13.5, 195, 64)
+
+[connection signal="body_entered" from="AntSignal" to="AntSignal" method="_on_body_entered"]

@@ -1,0 +1,1 @@
+class_name CameraScript extends Camera2D
