@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cikrmnmew8pgq"]
+[gd_scene load_steps=17 format=3 uid="uid://cikrmnmew8pgq"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_4gbis"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/PlayerAnt.gd" id="2_e4s6w"]
@@ -21,6 +21,11 @@ size = Vector2(128, 128)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tr7fb"]
 gradient = SubResource("Gradient_thpdj")
+width = 1152
+height = 648
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7rwyu"]
+gradient = SubResource("Gradient_thpdj")
 width = 100
 height = 100
 
@@ -33,6 +38,7 @@ size = Vector2(100, 100)
 script = ExtResource("1_4gbis")
 
 [node name="PlayerAnt" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_e4s6w")
 speed = 20000.0
 max_speed_range = 100.0
@@ -90,11 +96,15 @@ texture_filter = 3
 texture = ExtResource("9_lc7ml")
 region_rect = Rect2(0, 13.5, 195, 64)
 
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+texture = SubResource("GradientTexture2D_tr7fb")
+
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(126, -86)
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
-texture = SubResource("GradientTexture2D_tr7fb")
+texture = SubResource("GradientTexture2D_7rwyu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_b0c0c")

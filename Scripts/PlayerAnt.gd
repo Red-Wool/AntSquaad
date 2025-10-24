@@ -10,8 +10,16 @@ var move_difference : Vector2
 signal ant_movement(movement : Vector2)
 
 func _physics_process(delta):
-	var move = get_local_mouse_position()
-	move = move.normalized() * speed * min(move.length()/max_speed_range, 1.)
+	
+	#Mouse Movement
+	#var move = get_local_mouse_position()
+	#move = move.normalized() * speed * min(move.length()/max_speed_range, 1.)
+	
+	#WASD
+	var move = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
+	move = move.normalized() * speed
+	
+	
 	velocity = move * delta
 	
 	move_and_slide()
