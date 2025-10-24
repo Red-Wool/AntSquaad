@@ -7,6 +7,8 @@ class_name PlayerAnt extends CharacterBody2D
 
 var move_difference : Vector2
 
+var connected_ants : Array[Ant]
+
 signal ant_movement(movement : Vector2)
 
 func _physics_process(delta):
@@ -18,7 +20,6 @@ func _physics_process(delta):
 	#WASD
 	var move = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	move = move.normalized() * speed
-	
 	
 	velocity = move * delta
 	
@@ -34,9 +35,15 @@ func _physics_process(delta):
 		ant_signal.global_position = global_position
 		ant_signal._trigger_signal(self)
 
+func _connect_ant(ant : Ant):
+	if !ant_movement.is_connected(ant._connected_movement):
+		ant_movement.connect(ant._connected_movement)
+		connected_ants.append(ant)
+
 func _disconnect_ants():
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
+	connected_ants.clear()
 
 func _death():
 	#death!
