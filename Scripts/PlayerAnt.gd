@@ -29,3 +29,7 @@ func _physics_process(delta):
 func _disconnect_ants():
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
+
+func _death():
+	#death!
+	pass
