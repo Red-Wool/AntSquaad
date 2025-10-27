@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://c04liw3j0wrbo"]
+
+[ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/PlayerAnt.gd" id="1_xccjd"]
+[ext_resource type="Texture2D" uid="uid://q8ou2jprt3kj" path="res://Art/THEANT.png" id="2_b24yf"]
+[ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="3_cg8vk"]
+[ext_resource type="Script" uid="uid://doc7rhja2fed6" path="res://LevelWarp.gd" id="4_os1sd"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="5_r8dv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v06yv"]
+size = Vector2(80, 80)
+
+[sub_resource type="Gradient" id="Gradient_thpdj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j7upn"]
+gradient = SubResource("Gradient_thpdj")
+width = 1152
+height = 648
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esy05"]
+size = Vector2(123, 128)
+
+[node name="DebugSelectScene" type="Node2D"]
+
+[node name="PlayerAnt" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_xccjd")
+speed = 20000.0
+max_speed_range = 100.0
+
+[node name="Visual" type="Sprite2D" parent="PlayerAnt"]
+texture_filter = 3
+texture = ExtResource("2_b24yf")
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerAnt"]
+shape = SubResource("RectangleShape2D_v06yv")
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("3_cg8vk")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+texture = SubResource("GradientTexture2D_j7upn")
+
+[node name="LevelWarp" type="Area2D" parent="."]
+position = Vector2(-349, -191)
+script = ExtResource("4_os1sd")
+path = "res://AntTestScene.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelWarp"]
+texture = ExtResource("5_r8dv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWarp"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_esy05")
+
+[connection signal="body_entered" from="LevelWarp" to="LevelWarp" method="_on_body_entered"]
