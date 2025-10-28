@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://cikrmnmew8pgq"]
+[gd_scene load_steps=20 format=3 uid="uid://cikrmnmew8pgq"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_4gbis"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/PlayerAnt.gd" id="2_e4s6w"]
-[ext_resource type="Texture2D" uid="uid://q8ou2jprt3kj" path="res://Art/THEANT.png" id="3_2mfu8"]
-[ext_resource type="Texture2D" uid="uid://d25hbvetof7de" path="res://Art/otherANT.png" id="4_2mfu8"]
+[ext_resource type="Texture2D" uid="uid://psavh01l3pra" path="res://Art/NORMALANT-Sheet.png" id="3_e0bej"]
 [ext_resource type="Script" uid="uid://dd6cvtheif6h8" path="res://Scripts/Ant.gd" id="4_b0c0c"]
+[ext_resource type="Texture2D" uid="uid://c4lgm8gfjccuq" path="res://Art/FRIENDLYANT-Sheet.png" id="5_5iv8u"]
 [ext_resource type="Script" uid="uid://cp625cyfiy0w1" path="res://Scripts/EvilAnt.gd" id="6_b0c0c"]
 [ext_resource type="Texture2D" uid="uid://dfl5mrth5ncsi" path="res://Art/EvilANT.png" id="7_6jqbe"]
+[ext_resource type="Texture2D" uid="uid://dopwbu5kfpu0a" path="res://Art/EVILANT-Sheet.png" id="7_e0bej"]
 [ext_resource type="Script" uid="uid://bt36nbe4br3r4" path="res://Scripts/AxisAnt.gd" id="8_7rwyu"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/AntDisconnector.gd" id="8_lc7ml"]
 [ext_resource type="Script" uid="uid://uhmqiy81ivls" path="res://Scripts/TankAnt.gd" id="9_j3u5q"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="9_lc7ml"]
+[ext_resource type="Texture2D" uid="uid://bdt5yam5np5wb" path="res://Art/TANKANT-Sheet.png" id="10_e0bej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(80, 80)
@@ -37,6 +39,9 @@ size = Vector2(100, 100)
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("1_4gbis")
+follow_speed = 5.0
+zoom_speed = 5.0
+zoom_distance = 250.0
 
 [node name="PlayerAnt" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -46,7 +51,9 @@ max_speed_range = 100.0
 
 [node name="Visual" type="Sprite2D" parent="PlayerAnt"]
 texture_filter = 3
-texture = ExtResource("3_2mfu8")
+texture = ExtResource("3_e0bej")
+hframes = 3
+vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="PlayerAnt"]
 shape = SubResource("RectangleShape2D_e4s6w")
@@ -57,7 +64,9 @@ script = ExtResource("4_b0c0c")
 
 [node name="Visual" type="Sprite2D" parent="Ant"]
 texture_filter = 3
-texture = ExtResource("4_2mfu8")
+texture = ExtResource("5_5iv8u")
+hframes = 3
+vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Ant"]
 shape = SubResource("RectangleShape2D_e4s6w")
@@ -68,7 +77,9 @@ script = ExtResource("6_b0c0c")
 
 [node name="Visual" type="Sprite2D" parent="EvilAnt"]
 texture_filter = 3
-texture = ExtResource("7_6jqbe")
+texture = ExtResource("7_e0bej")
+hframes = 3
+vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="EvilAnt"]
 shape = SubResource("RectangleShape2D_e4s6w")
@@ -91,7 +102,9 @@ script = ExtResource("9_j3u5q")
 
 [node name="Visual" type="Sprite2D" parent="TankAnt"]
 texture_filter = 3
-texture = ExtResource("7_6jqbe")
+texture = ExtResource("10_e0bej")
+hframes = 3
+vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="TankAnt"]
 shape = SubResource("RectangleShape2D_e4s6w")
