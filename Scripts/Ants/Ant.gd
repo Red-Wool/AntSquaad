@@ -1,4 +1,4 @@
-class_name Ant extends CharacterBody2D
+class_name Ant extends BaseAnt
 
 var is_player_connected : bool = false
 

@@ -1,0 +1,1 @@
+class_name GrabbableObject extends Node2D

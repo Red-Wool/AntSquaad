@@ -1,4 +1,4 @@
-class_name PlayerAnt extends CharacterBody2D
+class_name PlayerAnt extends BaseAnt
 
 @export var speed : float
 @export var max_speed_range : float
