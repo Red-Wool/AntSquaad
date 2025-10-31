@@ -1,0 +1,189 @@
+[gd_scene load_steps=20 format=3 uid="uid://c8yt7q2cm2cjs"]
+
+[ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_5iavc"]
+[ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="2_j2qbg"]
+[ext_resource type="Texture2D" uid="uid://psavh01l3pra" path="res://Art/NORMALANT-Sheet.png" id="3_i6voi"]
+[ext_resource type="Script" uid="uid://dd6cvtheif6h8" path="res://Scripts/Ants/Ant.gd" id="4_y6wgf"]
+[ext_resource type="Texture2D" uid="uid://c4lgm8gfjccuq" path="res://Art/FRIENDLYANT-Sheet.png" id="5_t56wm"]
+[ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/Hazards/AntDisconnector.gd" id="6_t8mxh"]
+[ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="7_2kv26"]
+[ext_resource type="Script" uid="uid://lpumsb4ojfpt" path="res://ButtonToggle.gd" id="8_i6voi"]
+[ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Door.gd" id="8_y6wgf"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="9_y6wgf"]
+[ext_resource type="Script" uid="uid://b3ek3nhirjjqb" path="res://ButtonHold.gd" id="11_t56wm"]
+[ext_resource type="Script" uid="uid://b68xwc4j8xgr2" path="res://ButtonPermanent.gd" id="12_t8mxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70eox"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkrf"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_thpdj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j1nhd"]
+gradient = SubResource("Gradient_thpdj")
+width = 1152
+height = 648
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_22rpi"]
+gradient = SubResource("Gradient_thpdj")
+width = 100
+height = 100
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0tna"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t56wm"]
+size = Vector2(132, 129)
+
+[node name="ButtonTestScene" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("1_5iavc")
+follow_speed = 5.0
+zoom_speed = 5.0
+zoom_distance = 250.0
+
+[node name="PlayerAnt" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_j2qbg")
+speed = 20000.0
+max_speed_range = 100.0
+
+[node name="Visual" type="Sprite2D" parent="PlayerAnt"]
+texture_filter = 3
+texture = ExtResource("3_i6voi")
+hframes = 3
+vframes = 2
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerAnt"]
+shape = SubResource("RectangleShape2D_70eox")
+
+[node name="Ant" type="CharacterBody2D" parent="."]
+position = Vector2(291, -125)
+script = ExtResource("4_y6wgf")
+
+[node name="Visual" type="Sprite2D" parent="Ant"]
+texture_filter = 3
+texture = ExtResource("5_t56wm")
+hframes = 3
+vframes = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Ant"]
+shape = SubResource("RectangleShape2D_70eox")
+
+[node name="AntDisconnector" type="Area2D" parent="."]
+position = Vector2(-273, -111)
+script = ExtResource("6_t8mxh")
+
+[node name="Collision" type="CollisionShape2D" parent="AntDisconnector"]
+shape = SubResource("RectangleShape2D_8nkrf")
+
+[node name="Visual" type="Sprite2D" parent="AntDisconnector"]
+texture_filter = 3
+texture = ExtResource("7_2kv26")
+region_rect = Rect2(0, 13.5, 195, 64)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+texture = SubResource("GradientTexture2D_j1nhd")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(126, -86)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(176, 98)
+script = ExtResource("8_y6wgf")
+inverted = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door2" type="StaticBody2D" parent="."]
+position = Vector2(177, 236)
+script = ExtResource("8_y6wgf")
+door_id = 1
+inverted = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Door2"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door3" type="StaticBody2D" parent="."]
+position = Vector2(317, 103)
+script = ExtResource("8_y6wgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door3"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door4" type="StaticBody2D" parent="."]
+position = Vector2(465, -87)
+script = ExtResource("8_y6wgf")
+door_id = 2
+inverted = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Door4"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="ButtonToggle" type="Area2D" parent="."]
+position = Vector2(-383, 86)
+script = ExtResource("8_i6voi")
+
+[node name="Sprite2D" type="Sprite2D" parent="ButtonToggle"]
+z_index = -5
+texture = ExtResource("9_y6wgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonToggle"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t56wm")
+
+[node name="ButtonHold" type="Area2D" parent="."]
+position = Vector2(-381, 235)
+script = ExtResource("11_t56wm")
+button_id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ButtonHold"]
+z_index = -5
+texture = ExtResource("9_y6wgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonHold"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t56wm")
+
+[node name="ButtonPermanent" type="Area2D" parent="."]
+position = Vector2(475, -237)
+script = ExtResource("12_t8mxh")
+button_id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ButtonPermanent"]
+z_index = -5
+texture = ExtResource("9_y6wgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonPermanent"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t56wm")
+
+[connection signal="body_entered" from="AntDisconnector" to="AntDisconnector" method="_on_body_entered"]
+[connection signal="body_entered" from="ButtonToggle" to="ButtonToggle" method="_on_body_entered"]
+[connection signal="body_entered" from="ButtonHold" to="ButtonHold" method="_on_body_entered"]
+[connection signal="body_exited" from="ButtonHold" to="ButtonHold" method="_on_body_exited"]
+[connection signal="body_entered" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_entered"]
+[connection signal="body_exited" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_exited"]
