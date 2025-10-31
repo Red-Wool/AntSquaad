@@ -45,14 +45,16 @@ size = Vector2(50, 50)
 script = ExtResource("1_4gbis")
 follow_speed = 5.0
 zoom_speed = 5.0
-zoom_distance = 240.0
+zoom_distance = 250.0
 
 [node name="PlayerAnt" parent="." instance=ExtResource("2_5iv8u")]
 unique_name_in_owner = true
+can_hold_object = null
 
 [node name="Ant" type="CharacterBody2D" parent="."]
 position = Vector2(291, -125)
 script = ExtResource("4_b0c0c")
+can_hold_object = null
 
 [node name="Visual" type="Sprite2D" parent="Ant"]
 texture_filter = 3

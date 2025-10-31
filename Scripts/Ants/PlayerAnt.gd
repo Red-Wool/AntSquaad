@@ -11,6 +11,9 @@ var connected_ants : Array[Ant]
 
 signal ant_movement(movement : Vector2)
 
+func _process(delta):
+	super(delta)
+
 func _physics_process(delta):
 	
 	#Mouse Movement
