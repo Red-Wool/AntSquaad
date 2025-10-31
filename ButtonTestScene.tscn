@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8yt7q2cm2cjs"]
+[gd_scene load_steps=21 format=3 uid="uid://b0o8g2omkccrs"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_5iavc"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="2_j2qbg"]
@@ -7,11 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c4lgm8gfjccuq" path="res://Art/FRIENDLYANT-Sheet.png" id="5_t56wm"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/Hazards/AntDisconnector.gd" id="6_t8mxh"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="7_2kv26"]
-[ext_resource type="Script" uid="uid://lpumsb4ojfpt" path="res://ButtonToggle.gd" id="8_i6voi"]
-[ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Door.gd" id="8_y6wgf"]
+[ext_resource type="Script" path="res://ButtonToggle.gd" id="8_i6voi"]
+[ext_resource type="Script" path="res://Door.gd" id="8_y6wgf"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="9_y6wgf"]
-[ext_resource type="Script" uid="uid://b3ek3nhirjjqb" path="res://ButtonHold.gd" id="11_t56wm"]
-[ext_resource type="Script" uid="uid://b68xwc4j8xgr2" path="res://ButtonPermanent.gd" id="12_t8mxh"]
+[ext_resource type="Script" path="res://ButtonHold.gd" id="11_t56wm"]
+[ext_resource type="Script" path="res://ButtonPermanent.gd" id="12_t8mxh"]
+[ext_resource type="PackedScene" uid="uid://b6gkoovi0jhnq" path="res://Prefabs/file.tscn" id="13_2kv26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70eox"]
 size = Vector2(80, 80)
@@ -180,6 +181,9 @@ texture = ExtResource("9_y6wgf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonPermanent"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t56wm")
+
+[node name="File" parent="." instance=ExtResource("13_2kv26")]
+position = Vector2(-69, -181)
 
 [connection signal="body_entered" from="AntDisconnector" to="AntDisconnector" method="_on_body_entered"]
 [connection signal="body_entered" from="ButtonToggle" to="ButtonToggle" method="_on_body_entered"]
