@@ -47,7 +47,3 @@ func _disconnect_ants():
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
 	connected_ants.clear()
-
-func _death():
-	#death!
-	pass

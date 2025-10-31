@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cikrmnmew8pgq"]
+[gd_scene load_steps=21 format=3 uid="uid://cikrmnmew8pgq"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_4gbis"]
 [ext_resource type="PackedScene" uid="uid://brja2korku7uu" path="res://Prefabs/player_ant.tscn" id="2_5iv8u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://uhmqiy81ivls" path="res://Scripts/Ants/TankAnt.gd" id="9_j3u5q"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="9_lc7ml"]
 [ext_resource type="Texture2D" uid="uid://bdt5yam5np5wb" path="res://Art/TANKANT-Sheet.png" id="10_e0bej"]
+[ext_resource type="Script" uid="uid://b4kdravfxpmwg" path="res://Scripts/Hazards/KillZone.gd" id="13_8xckx"]
 [ext_resource type="PackedScene" uid="uid://b6gkoovi0jhnq" path="res://Prefabs/file.tscn" id="13_e0bej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
@@ -109,6 +110,20 @@ texture_filter = 3
 texture = ExtResource("9_lc7ml")
 region_rect = Rect2(0, 13.5, 195, 64)
 
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(-250, 158)
+script = ExtResource("13_8xckx")
+disable_after_hit = false
+
+[node name="Collision" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("RectangleShape2D_7rwyu")
+
+[node name="Visual" type="Sprite2D" parent="KillZone"]
+modulate = Color(1, 0, 0.016666412, 1)
+texture_filter = 3
+texture = ExtResource("9_lc7ml")
+region_rect = Rect2(0, 13.5, 195, 64)
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
 texture = SubResource("GradientTexture2D_tr7fb")
@@ -126,3 +141,4 @@ shape = SubResource("RectangleShape2D_b0c0c")
 position = Vector2(-102, -143)
 
 [connection signal="body_entered" from="AntDisconnector" to="AntDisconnector" method="_on_body_entered"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

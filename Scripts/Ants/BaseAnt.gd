@@ -18,3 +18,7 @@ func _hold_object(object : GrabbableObject):
 
 func _drop_object():
 	is_holding_object = false
+
+func _death():
+	print("GAMINGaas")
+	queue_free()
