@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="9_y6wgf"]
 [ext_resource type="Script" uid="uid://b3ek3nhirjjqb" path="res://ButtonHold.gd" id="11_t56wm"]
 [ext_resource type="Script" uid="uid://b68xwc4j8xgr2" path="res://ButtonPermanent.gd" id="12_t8mxh"]
-[ext_resource type="PackedScene" path="res://Prefabs/file.tscn" id="13_2kv26"]
+[ext_resource type="PackedScene" uid="uid://b6gkoovi0jhnq" path="res://Prefabs/file.tscn" id="13_2kv26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70eox"]
 size = Vector2(80, 80)
@@ -157,7 +157,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t56wm")
 
 [node name="ButtonHold" type="Area2D" parent="."]
-position = Vector2(-381, 235)
+position = Vector2(-385, 242)
 script = ExtResource("11_t56wm")
 button_id = 1
 
@@ -166,6 +166,19 @@ z_index = -5
 texture = ExtResource("9_y6wgf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonHold"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t56wm")
+
+[node name="ButtonHold2" type="Area2D" parent="."]
+position = Vector2(-61, 243)
+script = ExtResource("11_t56wm")
+button_id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ButtonHold2"]
+z_index = -5
+texture = ExtResource("9_y6wgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonHold2"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t56wm")
 
@@ -182,6 +195,19 @@ texture = ExtResource("9_y6wgf")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t56wm")
 
+[node name="ButtonPermanent2" type="Area2D" parent="."]
+position = Vector2(775, -238)
+script = ExtResource("12_t8mxh")
+button_id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ButtonPermanent2"]
+z_index = -5
+texture = ExtResource("9_y6wgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonPermanent2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t56wm")
+
 [node name="File" parent="." instance=ExtResource("13_2kv26")]
 position = Vector2(-69, -181)
 
@@ -194,5 +220,15 @@ position = Vector2(-69, -181)
 [connection signal="area_exited" from="ButtonHold" to="ButtonHold" method="_on_body_exited"]
 [connection signal="body_entered" from="ButtonHold" to="ButtonHold" method="_on_body_entered"]
 [connection signal="body_exited" from="ButtonHold" to="ButtonHold" method="_on_body_exited"]
+[connection signal="area_entered" from="ButtonHold2" to="ButtonHold2" method="_on_body_entered"]
+[connection signal="area_exited" from="ButtonHold2" to="ButtonHold2" method="_on_body_exited"]
+[connection signal="body_entered" from="ButtonHold2" to="ButtonHold2" method="_on_body_entered"]
+[connection signal="body_exited" from="ButtonHold2" to="ButtonHold2" method="_on_body_exited"]
 [connection signal="area_entered" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_entered"]
+[connection signal="area_exited" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_exited"]
 [connection signal="body_entered" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_entered"]
+[connection signal="body_exited" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_exited"]
+[connection signal="area_entered" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_entered"]
+[connection signal="area_exited" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_exited"]
+[connection signal="body_entered" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_entered"]
+[connection signal="body_exited" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_exited"]

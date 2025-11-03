@@ -13,4 +13,3 @@ func _update_active(signal_id: int, val : bool):
 		var true_val = val if inverted else !val
 		$Sprite2D.modulate.a = (1 if true_val else 0.5)
 		$CollisionShape2D.set_deferred("disabled", !true_val)
-		print_debug(val)

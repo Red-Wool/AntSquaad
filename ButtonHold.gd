@@ -1,15 +1,7 @@
 class_name ButtonHold extends BaseAntButton
 
-var count : int = 0
+func _on_full_press():
+	_set_active(true)
 
-func _on_body_entered(body):
-	if body is BaseAnt or body is GrabbableFile:
-		if (count == 0):
-			_set_active(true)
-		count += 1
-
-func _on_body_exited(body):
-	if body is BaseAnt or body is GrabbableFile:
-		count -= 1
-		if (count == 0):
-			_set_active(false)
+func _on_full_unpress():
+	_set_active(false)
