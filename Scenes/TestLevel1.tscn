@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c72kf602yah4k"]
 
-[ext_resource type="PackedScene" uid="uid://brja2korku7uu" path="res://Prefabs/player_ant.tscn" id="1_8h1c6"]
+[ext_resource type="PackedScene" uid="uid://brja2korku7uu" path="res://Prefabs/Ants/player_ant.tscn" id="1_8h1c6"]
 [ext_resource type="PackedScene" uid="uid://c18jtshdl06ho" path="res://Prefabs/player_camera.tscn" id="2_c4a5t"]
 [ext_resource type="PackedScene" uid="uid://btk6fw4ei83ey" path="res://Prefabs/tile_map_layer.tscn" id="3_c4a5t"]
 [ext_resource type="PackedScene" uid="uid://creggl1q6j7bn" path="res://Prefabs/background.tscn" id="4_u04dj"]

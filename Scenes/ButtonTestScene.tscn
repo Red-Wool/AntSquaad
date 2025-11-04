@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c8yt7q2cm2cjs"]
+[gd_scene load_steps=27 format=3 uid="uid://c8yt7q2cm2cjs"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_5iavc"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="2_j2qbg"]
@@ -7,18 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://c4lgm8gfjccuq" path="res://Art/FRIENDLYANT-Sheet.png" id="5_t56wm"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/Hazards/AntDisconnector.gd" id="6_t8mxh"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="7_2kv26"]
-[ext_resource type="Script" uid="uid://lpumsb4ojfpt" path="res://Scripts/ButtonToggle.gd" id="8_i6voi"]
 [ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Scripts/Door.gd" id="8_y6wgf"]
-[ext_resource type="Texture2D" uid="uid://bicwmesqncd2l" path="res://Art/SwitchOff.png" id="11_8nkrf"]
+[ext_resource type="PackedScene" uid="uid://cfrr1hh7iiqxe" path="res://Prefabs/Hazards/button_toggle.tscn" id="9_66ec8"]
+[ext_resource type="PackedScene" uid="uid://b8tabsu35mkbk" path="res://Prefabs/Hazards/button_hold.tscn" id="10_rwy1a"]
 [ext_resource type="Texture2D" uid="uid://ct08srf2c5np2" path="res://Art/ButtonOff.png" id="11_j1nhd"]
 [ext_resource type="Script" uid="uid://b3ek3nhirjjqb" path="res://Scripts/ButtonHold.gd" id="11_t56wm"]
 [ext_resource type="Texture2D" uid="uid://dgc4da3emag7" path="res://Art/ButtonOn.png" id="12_22rpi"]
-[ext_resource type="Texture2D" uid="uid://bovtkt4y6338k" path="res://Art/SwitchOn.png" id="12_j1nhd"]
 [ext_resource type="Script" uid="uid://b68xwc4j8xgr2" path="res://Scripts/ButtonPermanent.gd" id="12_t8mxh"]
-[ext_resource type="PackedScene" uid="uid://b6gkoovi0jhnq" path="res://Prefabs/file.tscn" id="13_2kv26"]
-[ext_resource type="Texture2D" uid="uid://b5bq48xtbq3fr" path="res://Art/SwitchStandOff.png" id="13_offd2"]
+[ext_resource type="PackedScene" uid="uid://b6gkoovi0jhnq" path="res://Prefabs/Hazards/file.tscn" id="13_2kv26"]
 [ext_resource type="Texture2D" uid="uid://gf4sjtk1u7vh" path="res://Art/ButtonStandOff.png" id="13_u0tna"]
-[ext_resource type="Texture2D" uid="uid://b57o5u858v8ob" path="res://Art/SwitchStandOn.png" id="14_gdexm"]
+[ext_resource type="PackedScene" uid="uid://befpmjefwsgwd" path="res://Prefabs/Hazards/button_permanent.tscn" id="16_wd34e"]
 [ext_resource type="Texture2D" uid="uid://e148sk45hfex" path="res://Art/ButtonStandOn.png" id="17_8o78s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70eox"]
@@ -41,44 +39,6 @@ height = 100
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0tna"]
 size = Vector2(100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u0tna"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_8nkrf")
-}],
-"loop": true,
-"name": &"off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_j1nhd")
-}],
-"loop": true,
-"name": &"on",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_offd2")
-}],
-"loop": true,
-"name": &"stand_off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_gdexm")
-}],
-"loop": true,
-"name": &"stand_on",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t56wm"]
-size = Vector2(132, 129)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o78s"]
 animations = [{
@@ -114,6 +74,9 @@ animations = [{
 "name": &"stand_on",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t56wm"]
+size = Vector2(132, 129)
 
 [node name="ButtonTestScene" type="Node2D"]
 
@@ -221,34 +184,11 @@ texture = SubResource("GradientTexture2D_22rpi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
 shape = SubResource("RectangleShape2D_u0tna")
 
-[node name="ButtonToggle" type="Area2D" parent="."]
+[node name="ButtonToggle" parent="." instance=ExtResource("9_66ec8")]
 position = Vector2(-383, 86)
-script = ExtResource("8_i6voi")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonToggle"]
-z_index = -5
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_u0tna")
-animation = &"stand_on"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonToggle"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_t56wm")
-
-[node name="ButtonHold" type="Area2D" parent="."]
+[node name="ButtonHold" parent="." instance=ExtResource("10_rwy1a")]
 position = Vector2(-385, 242)
-script = ExtResource("11_t56wm")
-button_id = 1
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonHold"]
-z_index = -5
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_8o78s")
-animation = &"on"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonHold"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_t56wm")
 
 [node name="ButtonHold2" type="Area2D" parent="."]
 position = Vector2(-61, 243)
@@ -265,20 +205,8 @@ animation = &"off"
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t56wm")
 
-[node name="ButtonPermanent" type="Area2D" parent="."]
+[node name="ButtonPermanent" parent="." instance=ExtResource("16_wd34e")]
 position = Vector2(475, -237)
-script = ExtResource("12_t8mxh")
-button_id = 2
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonPermanent"]
-z_index = -5
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_8o78s")
-animation = &"off"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonPermanent"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_t56wm")
 
 [node name="ButtonPermanent2" type="Area2D" parent="."]
 position = Vector2(775, -238)
@@ -299,22 +227,10 @@ shape = SubResource("RectangleShape2D_t56wm")
 position = Vector2(-69, -181)
 
 [connection signal="body_entered" from="AntDisconnector" to="AntDisconnector" method="_on_body_entered"]
-[connection signal="area_entered" from="ButtonToggle" to="ButtonToggle" method="_on_body_entered"]
-[connection signal="area_exited" from="ButtonToggle" to="ButtonToggle" method="_on_body_exited"]
-[connection signal="body_entered" from="ButtonToggle" to="ButtonToggle" method="_on_body_entered"]
-[connection signal="body_exited" from="ButtonToggle" to="ButtonToggle" method="_on_body_exited"]
-[connection signal="area_entered" from="ButtonHold" to="ButtonHold" method="_on_body_entered"]
-[connection signal="area_exited" from="ButtonHold" to="ButtonHold" method="_on_body_exited"]
-[connection signal="body_entered" from="ButtonHold" to="ButtonHold" method="_on_body_entered"]
-[connection signal="body_exited" from="ButtonHold" to="ButtonHold" method="_on_body_exited"]
 [connection signal="area_entered" from="ButtonHold2" to="ButtonHold2" method="_on_body_entered"]
 [connection signal="area_exited" from="ButtonHold2" to="ButtonHold2" method="_on_body_exited"]
 [connection signal="body_entered" from="ButtonHold2" to="ButtonHold2" method="_on_body_entered"]
 [connection signal="body_exited" from="ButtonHold2" to="ButtonHold2" method="_on_body_exited"]
-[connection signal="area_entered" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_entered"]
-[connection signal="area_exited" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_exited"]
-[connection signal="body_entered" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_entered"]
-[connection signal="body_exited" from="ButtonPermanent" to="ButtonPermanent" method="_on_body_exited"]
 [connection signal="area_entered" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_entered"]
 [connection signal="area_exited" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_exited"]
 [connection signal="body_entered" from="ButtonPermanent2" to="ButtonPermanent2" method="_on_body_entered"]
