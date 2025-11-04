@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c04liw3j0wrbo"]
 
-[ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/PlayerAnt.gd" id="1_xccjd"]
+[ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_xccjd"]
 [ext_resource type="Texture2D" uid="uid://q8ou2jprt3kj" path="res://Art/THEANT.png" id="2_b24yf"]
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="3_cg8vk"]
 [ext_resource type="Script" uid="uid://doc7rhja2fed6" path="res://LevelWarp.gd" id="4_os1sd"]
