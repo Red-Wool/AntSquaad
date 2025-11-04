@@ -3,7 +3,10 @@ class_name PlayerAnt extends BaseAnt
 @export var speed : float
 @export var max_speed_range : float
 
-@onready var ant_signal_prefab : PackedScene = preload("res://Prefabs/ant_signal.tscn")
+@onready var ant_signal_prefab : PackedScene = preload("res://Prefabs/Hazards/ant_signal.tscn")
+
+@onready var ant_signal_sfx : AudioStreamPlayer2D = $AntSignalSFX
+@onready var ant_connect_sfx : AudioStreamPlayer2D = $AntConnectSFX
 
 var move_difference : Vector2
 
@@ -37,11 +40,15 @@ func _physics_process(delta):
 		add_sibling(ant_signal)
 		ant_signal.global_position = global_position
 		ant_signal._trigger_signal(self, 200, .5)
+		
+		ant_signal_sfx.play()
 
 func _connect_ant(ant : Ant):
 	if !ant_movement.is_connected(ant._connected_movement):
 		ant_movement.connect(ant._connected_movement)
 		connected_ants.append(ant)
+		
+		ant_connect_sfx.play()
 
 func _connected_ant_death(ant : Ant):
 	var index : int = connected_ants.find(ant)

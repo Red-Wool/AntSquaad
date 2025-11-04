@@ -7,6 +7,9 @@ class_name CameraScript extends Camera2D
 @export var zoom_distance : float
 
 func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	
 	if !is_instance_valid(player_follow):
 		return
 	

@@ -15,9 +15,11 @@ func _process(delta):
 func _hold_object(object : GrabbableObject):
 	is_holding_object = true
 	object_held = object
+	object._object_grabbed()
 
 func _drop_object():
 	is_holding_object = false
+	object_held._object_dropped()
 
 func _death():
 	queue_free()

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6gkoovi0jhnq"]
+[gd_scene load_steps=6 format=3 uid="uid://b6gkoovi0jhnq"]
 
 [ext_resource type="Script" uid="uid://dekb6xartl86f" path="res://Scripts/Hazards/GrabbableFile.gd" id="1_ten87"]
 [ext_resource type="Texture2D" uid="uid://c14ped8nf0sv" path="res://Art/file_reg.png" id="2_l1v0s"]
+[ext_resource type="AudioStream" uid="uid://xl75lj1bdng1" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/File Pickup/zapsplat_science_fiction_computer_tone_start_beep_114880.mp3" id="3_dr8ap"]
+[ext_resource type="AudioStream" uid="uid://mcu74pc1orst" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/File Placedown/zapsplat_science_fiction_computer_tone_beep_dark_114859.mp3" id="4_5c1hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iv8u"]
 size = Vector2(50, 50)
@@ -14,5 +16,11 @@ texture = ExtResource("2_l1v0s")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5iv8u")
+
+[node name="FileGrabSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dr8ap")
+
+[node name="FileDropSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5c1hp")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

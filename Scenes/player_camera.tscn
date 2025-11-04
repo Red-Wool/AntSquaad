@@ -6,4 +6,4 @@
 script = ExtResource("1_vc08c")
 follow_speed = 5.0
 zoom_speed = 5.0
-zoom_distance = 240.0
+zoom_distance = 200.0

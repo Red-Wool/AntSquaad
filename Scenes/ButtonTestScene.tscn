@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8yt7q2cm2cjs"]
+[gd_scene load_steps=28 format=3 uid="uid://c8yt7q2cm2cjs"]
 
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="1_5iavc"]
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="2_j2qbg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4lgm8gfjccuq" path="res://Art/FRIENDLYANT-Sheet.png" id="5_t56wm"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/Hazards/AntDisconnector.gd" id="6_t8mxh"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="7_2kv26"]
+[ext_resource type="PackedScene" uid="uid://btboenebpvyih" path="res://Prefabs/Hazards/door.tscn" id="8_rwy1a"]
 [ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Scripts/Door.gd" id="8_y6wgf"]
 [ext_resource type="PackedScene" uid="uid://cfrr1hh7iiqxe" path="res://Prefabs/Hazards/button_toggle.tscn" id="9_66ec8"]
 [ext_resource type="PackedScene" uid="uid://b8tabsu35mkbk" path="res://Prefabs/Hazards/button_hold.tscn" id="10_rwy1a"]
@@ -139,16 +140,8 @@ texture = SubResource("GradientTexture2D_22rpi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_u0tna")
 
-[node name="Door" type="StaticBody2D" parent="."]
+[node name="Door" parent="." instance=ExtResource("8_rwy1a")]
 position = Vector2(176, 98)
-script = ExtResource("8_y6wgf")
-inverted = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Door"]
-texture = SubResource("GradientTexture2D_22rpi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-shape = SubResource("RectangleShape2D_u0tna")
 
 [node name="Door2" type="StaticBody2D" parent="."]
 position = Vector2(177, 236)
