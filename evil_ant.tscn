@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://utp8mun0a3kn"]
+
+[ext_resource type="Script" uid="uid://cp625cyfiy0w1" path="res://Scripts/Ants/EvilAnt.gd" id="1_6ytj3"]
+[ext_resource type="Texture2D" uid="uid://dopwbu5kfpu0a" path="res://Art/EVILANT-Sheet.png" id="2_bxwac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
+size = Vector2(40, 40)
+
+[node name="EvilAnt" type="CharacterBody2D"]
+script = ExtResource("1_6ytj3")
+
+[node name="Visual" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("2_bxwac")
+hframes = 3
+vframes = 2
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e4s6w")
