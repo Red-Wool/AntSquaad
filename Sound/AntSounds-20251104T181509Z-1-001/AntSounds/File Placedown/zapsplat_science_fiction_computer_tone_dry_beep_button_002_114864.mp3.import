@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhyrabce2isg4"
+path="res://.godot/imported/zapsplat_science_fiction_computer_tone_dry_beep_button_002_114864.mp3-aa5ee2e0101ae48f4f8a70e36d550736.mp3str"
+
+[deps]
+
+source_file="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/File Placedown/zapsplat_science_fiction_computer_tone_dry_beep_button_002_114864.mp3"
+dest_files=["res://.godot/imported/zapsplat_science_fiction_computer_tone_dry_beep_button_002_114864.mp3-aa5ee2e0101ae48f4f8a70e36d550736.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

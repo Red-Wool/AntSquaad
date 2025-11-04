@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ppsoktn8cytn"
+path="res://.godot/imported/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3-8ed2dfc2b51487235abb073727a77f89.mp3str"
+
+[deps]
+
+source_file="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3"
+dest_files=["res://.godot/imported/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3-8ed2dfc2b51487235abb073727a77f89.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

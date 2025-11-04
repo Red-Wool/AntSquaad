@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b04iy68vsjeb0"
+path="res://.godot/imported/zapsplat_science_fiction_computer_tone_negative_rejected_114871.mp3-ec1d47ce296a8e5bd444fd7b881180e2.mp3str"
+
+[deps]
+
+source_file="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_rejected_114871.mp3"
+dest_files=["res://.godot/imported/zapsplat_science_fiction_computer_tone_negative_rejected_114871.mp3-ec1d47ce296a8e5bd444fd7b881180e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

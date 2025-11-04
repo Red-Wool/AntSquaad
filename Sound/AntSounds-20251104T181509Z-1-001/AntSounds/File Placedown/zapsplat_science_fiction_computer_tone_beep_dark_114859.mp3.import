@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mcu74pc1orst"
+path="res://.godot/imported/zapsplat_science_fiction_computer_tone_beep_dark_114859.mp3-6bc39a065df1196df7f9ca12aff8c343.mp3str"
+
+[deps]
+
+source_file="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/File Placedown/zapsplat_science_fiction_computer_tone_beep_dark_114859.mp3"
+dest_files=["res://.godot/imported/zapsplat_science_fiction_computer_tone_beep_dark_114859.mp3-6bc39a065df1196df7f9ca12aff8c343.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
