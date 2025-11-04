@@ -34,7 +34,7 @@ func _on_body_exited(body):
 
 func _set_self_active(val):
 	self_active = val;
-	$Sprite2D. flip_v = val
+	_update_sprite()
 	var full_update = true
 	for button in connected_buttons:
 		if !button.self_active:
@@ -50,7 +50,14 @@ func _on_full_unpress():
 
 func _set_active(val):
 	active = val
-	$Sprite2D.modulate.a = (1 if val else 0.5)
+	_update_sprite()
 	get_tree().call_group("doors", "_update_active", button_id, val)
 	for button in connected_buttons:
-		button.get_node("Sprite2D").modulate.a = (1 if val else 0.5)
+		button.active = active
+		button._update_sprite()
+
+func _update_sprite():
+	if active:
+		$AnimatedSprite2D.animation = &"stand_on" if self_active else &"on"
+	else:
+		$AnimatedSprite2D.animation = &"stand_off" if self_active else &"off"
