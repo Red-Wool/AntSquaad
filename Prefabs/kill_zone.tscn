@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://kc6rsd4q3abl"]
+
+[ext_resource type="Script" uid="uid://b4kdravfxpmwg" path="res://Scripts/Hazards/KillZone.gd" id="1_focej"]
+[ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="2_0rimb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rwyu"]
+size = Vector2(128, 128)
+
+[node name="KillZone" type="Area2D"]
+script = ExtResource("1_focej")
+disable_after_hit = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7rwyu")
+
+[node name="Visual" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.016666412, 1)
+texture_filter = 3
+texture = ExtResource("2_0rimb")
+region_rect = Rect2(0, 13.5, 195, 64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

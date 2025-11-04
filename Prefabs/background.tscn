@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://creggl1q6j7bn"]
+
+[sub_resource type="Gradient" id="Gradient_thpdj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.16862746, 0.05882353, 0.32941177, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tr7fb"]
+gradient = SubResource("Gradient_thpdj")
+width = 1152
+height = 648
+
+[node name="Background" type="Sprite2D"]
+z_index = -10
+texture = SubResource("GradientTexture2D_tr7fb")

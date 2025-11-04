@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu3thbcxg6vr8"]
+
+[ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/Hazards/AntDisconnector.gd" id="1_546s7"]
+[ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="2_567o5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rwyu"]
+size = Vector2(128, 128)
+
+[node name="AntDisconnector" type="Area2D"]
+script = ExtResource("1_546s7")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7rwyu")
+
+[node name="Visual" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("2_567o5")
+region_rect = Rect2(0, 13.5, 195, 64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
