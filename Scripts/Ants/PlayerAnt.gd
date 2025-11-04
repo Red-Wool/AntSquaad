@@ -43,7 +43,22 @@ func _connect_ant(ant : Ant):
 		ant_movement.connect(ant._connected_movement)
 		connected_ants.append(ant)
 
+func _connected_ant_death(ant : Ant):
+	var index : int = connected_ants.find(ant)
+	print(index)
+	if index != -1:
+		for connection in ant_movement.get_connections():
+			if ant_movement.is_connected(connected_ants[index]._connected_movement):
+				ant_movement.disconnect(connected_ants[index]._connected_movement)
+				break
+		connected_ants.remove_at(index)
+		print("RemovedAnt")
+
 func _disconnect_ants():
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
 	connected_ants.clear()
+
+func _death():
+	_disconnect_ants()
+	super()

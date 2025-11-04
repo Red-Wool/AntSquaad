@@ -2,7 +2,6 @@ class_name GrabbableFile extends GrabbableObject
 
 
 func _collision(body : Node2D):
-	print("Grab!")
 	super(body)
 	#if true:
 	#	collision.disabled = true

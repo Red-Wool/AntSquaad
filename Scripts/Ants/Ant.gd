@@ -10,3 +10,8 @@ func _connect_ant(player : PlayerAnt):
 func _connected_movement(movement : Vector2):
 	velocity = movement
 	move_and_slide()
+
+func _death():
+	if is_player_connected:
+		connected_ant._connected_ant_death(self)
+	super()
