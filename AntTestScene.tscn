@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://uhmqiy81ivls" path="res://Scripts/Ants/TankAnt.gd" id="9_j3u5q"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="9_lc7ml"]
 [ext_resource type="Texture2D" uid="uid://bdt5yam5np5wb" path="res://Art/TANKANT-Sheet.png" id="10_e0bej"]
-[ext_resource type="Script" uid="uid://b4kdravfxpmwg" path="res://Scripts/Hazards/KillZone.gd" id="13_8xckx"]
+[ext_resource type="Script" path="res://Scripts/Hazards/KillZone.gd" id="13_8xckx"]
 [ext_resource type="PackedScene" uid="uid://b6gkoovi0jhnq" path="res://Prefabs/file.tscn" id="13_e0bej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
