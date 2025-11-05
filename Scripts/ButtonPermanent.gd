@@ -1,4 +1,5 @@
-class_name ButtonPermanent extends BaseAntButton
+extends PowerableButton
 
-func _on_full_press():
-	_set_active(true)
+func _update_pressed(val):
+	if (val):
+		_set_input(0, true)

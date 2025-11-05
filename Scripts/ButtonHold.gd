@@ -1,7 +1,4 @@
-class_name ButtonHold extends BaseAntButton
+extends PowerableButton
 
-func _on_full_press():
-	_set_active(true)
-
-func _on_full_unpress():
-	_set_active(false)
+func _update_pressed(val):
+	_set_input(0, val)

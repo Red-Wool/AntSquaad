@@ -1,4 +1,5 @@
-class_name ButtonToggle extends BaseAntButton
+extends PowerableButton
 
-func _on_full_press():
-	_set_active(!active)
+func _update_pressed(val):
+	if (val):
+		_set_input(0, !inputs[0])

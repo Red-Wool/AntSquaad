@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqm476yqfhkc6"]
+
+[ext_resource type="Script" uid="uid://jc7hma0fe55k" path="res://Scenes/AndGate.gd" id="1_8tus5"]
+[ext_resource type="Texture2D" uid="uid://cm6ohuy586y6q" path="res://Art/AndGateOff.png" id="2_8tus5"]
+[ext_resource type="Texture2D" uid="uid://vjfue3ah3cx2" path="res://Art/AndGateOn.png" id="3_i3yt2"]
+[ext_resource type="Texture2D" uid="uid://gf4sjtk1u7vh" path="res://Art/ButtonStandOff.png" id="4_iciao"]
+[ext_resource type="Texture2D" uid="uid://e148sk45hfex" path="res://Art/ButtonStandOn.png" id="5_qct3g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8o78s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8tus5")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i3yt2")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_iciao")
+}],
+"loop": true,
+"name": &"stand_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qct3g")
+}],
+"loop": true,
+"name": &"stand_on",
+"speed": 5.0
+}]
+
+[node name="AndGate" type="Node2D"]
+script = ExtResource("1_8tus5")
+metadata/_custom_type_script = "uid://dx8wosv7i0m24"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -5
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8o78s")
+animation = &"on"

@@ -46,7 +46,6 @@ size = Vector2(132, 129)
 
 [node name="ButtonPermanent" type="Area2D"]
 script = ExtResource("1_7tvcp")
-button_id = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -5
