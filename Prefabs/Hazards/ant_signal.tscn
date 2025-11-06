@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctw0swbo2a1n4"]
+[gd_scene load_steps=6 format=3 uid="uid://ctw0swbo2a1n4"]
 
 [ext_resource type="Script" uid="uid://dkuu1bfal25os" path="res://Scripts/Ants/AntSignal.gd" id="1_r4wbr"]
+[ext_resource type="Shader" uid="uid://duib75edr67iq" path="res://Scripts/Shaders/AntSignal.gdshader" id="2_mpswr"]
 [ext_resource type="Texture2D" uid="uid://bv5jxjvundcx1" path="res://Art/AntSignal.png" id="2_we17i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mfu8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdpgq"]
+shader = ExtResource("2_mpswr")
 
 [node name="AntSignal" type="Area2D"]
 z_index = 11
@@ -14,6 +18,7 @@ shape = SubResource("CircleShape2D_2mfu8")
 
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 3
+material = SubResource("ShaderMaterial_hdpgq")
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_we17i")
 region_rect = Rect2(0, 13.5, 195, 64)

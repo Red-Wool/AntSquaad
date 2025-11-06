@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5ijt18y0f8s0"]
 
-[ext_resource type="Shader" uid="uid://cfiq0wn4guddy" path="res://PowerConnection.gdshader" id="1_uqist"]
+[ext_resource type="Shader" uid="uid://cfiq0wn4guddy" path="res://Scripts/Shaders/PowerConnection.gdshader" id="1_uqist"]
 [ext_resource type="Script" uid="uid://dk13q4w1wplma" path="res://Scripts/PowerConnectionDisplay.gd" id="2_pl2wf"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wd34e"]

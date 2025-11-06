@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bu7q6oy2dgf5g"]
 
-[ext_resource type="Script" path="res://Scenes/NotGate.gd" id="1_ctuss"]
+[ext_resource type="Script" uid="uid://by2sik1c5p1ib" path="res://Scripts/Hazards/NotGate.gd" id="1_ctuss"]
 [ext_resource type="Texture2D" uid="uid://bifoptoygllvi" path="res://Art/NotGateOff.png" id="2_ctuss"]
 [ext_resource type="Texture2D" uid="uid://cssrb10nxicr1" path="res://Art/NotGateOn.png" id="3_dijuo"]
 [ext_resource type="Texture2D" uid="uid://gf4sjtk1u7vh" path="res://Art/ButtonStandOff.png" id="4_6ybh4"]
