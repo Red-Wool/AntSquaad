@@ -11,9 +11,15 @@ void vertex() {
 
 void fragment() {
 	vec2 suv = world_position;
-	//suv.x *= SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
+	
+	vec2 ruv = UV;
+	ruv -= .5;
+	//ruv.x *= SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
+	
+	
 	
 	suv = floor(suv*1.)/1.;
+	//suv += normalize(ruv)*TIME;
 	suv += (floor(TIME*12.)/12.)*2.;
 	suv = fract(suv*.2);
 	suv -= .5;
@@ -21,6 +27,9 @@ void fragment() {
 	float pct = (1.-smoothstep(.2,.5,abs(suv.x))) * (1.-smoothstep(.2,.5,abs(suv.y)));
 	
 	COLOR = vec4(vec3(.2,.2,1.)*pct,textureLod(TEXTURE,UV,0.).a*pow(pct,2.));
+	COLOR.a += pct * (sin(length(ruv)*20.-TIME*10.)*.5+.5) * (1.-smoothstep(.4, .5,length(ruv)));
+	//COLOR.rgb = vec3(length(ruv));
+	//COLOR.a = 1.;
 	// Called for every pixel the material is visible on. //textureLod(TEXTURE,UV,0.).a
 }
 
