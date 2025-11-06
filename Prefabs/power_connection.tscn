@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ijt18y0f8s0"]
+
+[ext_resource type="Shader" uid="uid://cfiq0wn4guddy" path="res://PowerConnection.gdshader" id="1_uqist"]
+[ext_resource type="Script" uid="uid://dk13q4w1wplma" path="res://Scripts/PowerConnectionDisplay.gd" id="2_pl2wf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wd34e"]
+noise_type = 3
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_61c0d"]
+noise = SubResource("FastNoiseLite_wd34e")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61c0d"]
+resource_local_to_scene = true
+shader = ExtResource("1_uqist")
+shader_parameter/perlin = SubResource("NoiseTexture2D_61c0d")
+shader_parameter/powered = false
+
+[sub_resource type="Gradient" id="Gradient_yprwc"]
+
+[node name="PowerConnection" type="Line2D"]
+z_index = -1
+z_as_relative = false
+material = SubResource("ShaderMaterial_61c0d")
+points = PackedVector2Array(-102, -42, -27, -42, 279, -42, 279, 71, 354, 71)
+gradient = SubResource("Gradient_yprwc")
+texture_mode = 1
+script = ExtResource("2_pl2wf")
+initial_plot_size = 65.0

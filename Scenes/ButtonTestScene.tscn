@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://c8yt7q2cm2cjs"]
 
-[ext_resource type="PackedScene" uid="uid://c18jtshdl06ho" path="res://Scenes/player_camera.tscn" id="1_wd34e"]
+[ext_resource type="PackedScene" uid="uid://c18jtshdl06ho" path="res://Prefabs/player_camera.tscn" id="1_wd34e"]
 [ext_resource type="PackedScene" uid="uid://brja2korku7uu" path="res://Prefabs/Ants/player_ant.tscn" id="2_wd34e"]
 [ext_resource type="PackedScene" uid="uid://bpfc8x26u7g2q" path="res://Prefabs/Ants/ant.tscn" id="3_rwy1a"]
 [ext_resource type="Script" uid="uid://bxs4d58dackc7" path="res://Scripts/Hazards/AntDisconnector.gd" id="6_t8mxh"]
@@ -19,15 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bqm476yqfhkc6" path="res://Prefabs/Hazards/and_gate.tscn" id="20_61c0d"]
 [ext_resource type="PackedScene" uid="uid://bu7q6oy2dgf5g" path="res://Prefabs/Hazards/not_gate.tscn" id="21_61c0d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkrf"]
-size = Vector2(128, 128)
-
 [sub_resource type="Gradient" id="Gradient_thpdj"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j1nhd"]
-gradient = SubResource("Gradient_thpdj")
-width = 1152
-height = 648
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_22rpi"]
 gradient = SubResource("Gradient_thpdj")
@@ -75,6 +67,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t56wm"]
 size = Vector2(132, 129)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkrf"]
+size = Vector2(128, 128)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j1nhd"]
+gradient = SubResource("Gradient_thpdj")
+width = 1152
+height = 648
+
 [node name="ButtonTestScene" type="Node2D"]
 
 [node name="Camera" parent="." instance=ExtResource("1_wd34e")]
@@ -84,6 +84,90 @@ unique_name_in_owner = true
 
 [node name="Ant" parent="." instance=ExtResource("3_rwy1a")]
 position = Vector2(290, -125)
+
+[node name="LevelObjects" type="Node2D" parent="."]
+
+[node name="Wall" type="StaticBody2D" parent="LevelObjects"]
+position = Vector2(126, -86)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObjects/Wall"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Wall"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door" parent="LevelObjects" instance=ExtResource("8_rwy1a")]
+position = Vector2(354, 71)
+
+[node name="Door2" type="StaticBody2D" parent="LevelObjects"]
+position = Vector2(177, 236)
+script = ExtResource("8_y6wgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObjects/Door2"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Door2"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door3" type="StaticBody2D" parent="LevelObjects"]
+position = Vector2(-854, 34)
+script = ExtResource("8_y6wgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObjects/Door3"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Door3"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="Door4" type="StaticBody2D" parent="LevelObjects"]
+position = Vector2(465, -87)
+script = ExtResource("8_y6wgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelObjects/Door4"]
+texture = SubResource("GradientTexture2D_22rpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Door4"]
+shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="ButtonToggle" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("9_66ec8")]
+z_as_relative = false
+position = Vector2(-102, -42)
+outputs = [NodePath("../Door"), NodePath("../NotGate")]
+
+[node name="ButtonHold" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("10_rwy1a")]
+position = Vector2(8, 125)
+outputs = [NodePath("../AndGate")]
+
+[node name="ButtonHold2" type="Area2D" parent="LevelObjects" node_paths=PackedStringArray("outputs")]
+position = Vector2(649, 115)
+script = ExtResource("11_t56wm")
+outputs = [NodePath("../AndGate")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LevelObjects/ButtonHold2"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8o78s")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ButtonHold2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t56wm")
+
+[node name="ButtonPermanent" parent="LevelObjects" instance=ExtResource("16_wd34e")]
+position = Vector2(475, -237)
+
+[node name="File" parent="LevelObjects" instance=ExtResource("13_2kv26")]
+position = Vector2(-69, -181)
+
+[node name="AndGate" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("20_61c0d")]
+position = Vector2(271, 237)
+outputs = [NodePath("../Door2")]
+
+[node name="NotGate" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("21_61c0d")]
+position = Vector2(-659, -30)
+outputs = [NodePath("../Door3")]
+
+[node name="NotGate2" parent="LevelObjects" instance=ExtResource("21_61c0d")]
+position = Vector2(523, 263)
 
 [node name="AntDisconnector" type="Area2D" parent="."]
 position = Vector2(-273, -111)
@@ -99,92 +183,11 @@ region_rect = Rect2(0, 13.5, 195, 64)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
+position = Vector2(2, -4)
 texture = SubResource("GradientTexture2D_j1nhd")
 
-[node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(126, -86)
-
-[node name="Sprite2D" type="Sprite2D" parent="Wall"]
-texture = SubResource("GradientTexture2D_22rpi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource("RectangleShape2D_u0tna")
-
-[node name="Door" parent="." instance=ExtResource("8_rwy1a")]
-position = Vector2(176, 98)
-
-[node name="Door2" type="StaticBody2D" parent="."]
-position = Vector2(177, 236)
-script = ExtResource("8_y6wgf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door2"]
-texture = SubResource("GradientTexture2D_22rpi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
-shape = SubResource("RectangleShape2D_u0tna")
-
-[node name="Door3" type="StaticBody2D" parent="."]
-position = Vector2(-658, 72)
-script = ExtResource("8_y6wgf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door3"]
-texture = SubResource("GradientTexture2D_22rpi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
-shape = SubResource("RectangleShape2D_u0tna")
-
-[node name="Door4" type="StaticBody2D" parent="."]
-position = Vector2(465, -87)
-script = ExtResource("8_y6wgf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door4"]
-texture = SubResource("GradientTexture2D_22rpi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
-shape = SubResource("RectangleShape2D_u0tna")
-
-[node name="ButtonToggle" parent="." node_paths=PackedStringArray("outputs") instance=ExtResource("9_66ec8")]
-position = Vector2(-382, 70)
-outputs = [NodePath("../Door"), NodePath("../NotGate")]
-
-[node name="ButtonHold" parent="." node_paths=PackedStringArray("outputs") instance=ExtResource("10_rwy1a")]
-position = Vector2(-385, 242)
-outputs = [NodePath("../AndGate")]
-
-[node name="ButtonHold2" type="Area2D" parent="." node_paths=PackedStringArray("outputs")]
-position = Vector2(-61, 243)
-script = ExtResource("11_t56wm")
-outputs = [NodePath("../AndGate")]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ButtonHold2"]
-z_index = -5
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_8o78s")
-animation = &"off"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonHold2"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_t56wm")
-
-[node name="ButtonPermanent" parent="." instance=ExtResource("16_wd34e")]
-position = Vector2(475, -237)
-
-[node name="File" parent="." instance=ExtResource("13_2kv26")]
-position = Vector2(-69, -181)
-
-[node name="AndGate" parent="." node_paths=PackedStringArray("outputs") instance=ExtResource("20_61c0d")]
-position = Vector2(271, 237)
-outputs = [NodePath("../Door2")]
-
-[node name="NotGate" parent="." node_paths=PackedStringArray("outputs") instance=ExtResource("21_61c0d")]
-position = Vector2(-659, -30)
-outputs = [NodePath("../Door3")]
-
-[node name="NotGate2" parent="." instance=ExtResource("21_61c0d")]
-position = Vector2(523, 263)
-
+[connection signal="area_entered" from="LevelObjects/ButtonHold2" to="LevelObjects/ButtonHold2" method="_on_body_entered"]
+[connection signal="area_exited" from="LevelObjects/ButtonHold2" to="LevelObjects/ButtonHold2" method="_on_body_exited"]
+[connection signal="body_entered" from="LevelObjects/ButtonHold2" to="LevelObjects/ButtonHold2" method="_on_body_entered"]
+[connection signal="body_exited" from="LevelObjects/ButtonHold2" to="LevelObjects/ButtonHold2" method="_on_body_exited"]
 [connection signal="body_entered" from="AntDisconnector" to="AntDisconnector" method="_on_body_entered"]
-[connection signal="area_entered" from="ButtonHold2" to="ButtonHold2" method="_on_body_entered"]
-[connection signal="area_exited" from="ButtonHold2" to="ButtonHold2" method="_on_body_exited"]
-[connection signal="body_entered" from="ButtonHold2" to="ButtonHold2" method="_on_body_entered"]
-[connection signal="body_exited" from="ButtonHold2" to="ButtonHold2" method="_on_body_exited"]

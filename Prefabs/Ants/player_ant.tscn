@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://brja2korku7uu"]
+[gd_scene load_steps=7 format=3 uid="uid://brja2korku7uu"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_61ujp"]
 [ext_resource type="Texture2D" uid="uid://psavh01l3pra" path="res://Art/NORMALANT-Sheet.png" id="2_f1fyj"]
 [ext_resource type="AudioStream" uid="uid://6r1ervenp0q8" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Connected/zapsplat_science_fiction_computer_tone_chime_ping_114862.mp3" id="3_i8eq4"]
 [ext_resource type="AudioStream" uid="uid://dvdnwb7yv42uj" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Signal/zapsplat_science_fiction_computer_tone_prompt_short_114877.mp3" id="4_2n0ci"]
+[ext_resource type="AudioStream" uid="uid://f2yfakgqmiud" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/zapsplat_science_fiction_computer_tone_dry_beep_button_001_114863.mp3" id="5_nhsor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
 
 [node name="PlayerAnt" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_61ujp")
 speed = 20000.0
 max_speed_range = 100.0
@@ -29,3 +31,4 @@ stream = ExtResource("3_i8eq4")
 stream = ExtResource("4_2n0ci")
 
 [node name="AntDisconnectSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nhsor")

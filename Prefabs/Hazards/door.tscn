@@ -13,8 +13,8 @@ height = 100
 size = Vector2(100, 100)
 
 [node name="Door" type="StaticBody2D"]
+z_index = 1
 script = ExtResource("1_pk8b3")
-inverted = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_22rpi")
