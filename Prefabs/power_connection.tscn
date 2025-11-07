@@ -31,3 +31,4 @@ gradient = SubResource("Gradient_yprwc")
 texture_mode = 1
 script = ExtResource("2_pl2wf")
 initial_plot_size = 65.0
+manuel = null
