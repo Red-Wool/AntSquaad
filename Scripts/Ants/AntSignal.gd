@@ -14,6 +14,9 @@ func _trigger_signal(ant : PlayerAnt, size : float = 200., time : float = 1.):
 	tween.tween_property(sprite, "scale", Vector2.ONE * .16 * (size*.1), time)
 	
 	await get_tree().create_timer(time).timeout
+	collision.disabled = true
+	get_tree().create_tween().tween_property(sprite.material, "shader_parameter/alpha", 0, .1)
+	await get_tree().create_timer(.1).timeout
 	
 	queue_free()
 

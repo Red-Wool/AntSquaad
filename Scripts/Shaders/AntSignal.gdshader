@@ -3,6 +3,8 @@ shader_type canvas_item;
 
 varying vec2 world_position;
 
+uniform float alpha = 1.;
+
 void vertex() {
 	world_position = VERTEX;
 	
@@ -16,7 +18,7 @@ void fragment() {
 	ruv -= .5;
 	//ruv.x *= SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
 	
-	
+	ruv = floor(ruv*32.)/32.;
 	
 	suv = floor(suv*1.)/1.;
 	//suv += normalize(ruv)*TIME;
@@ -27,7 +29,8 @@ void fragment() {
 	float pct = (1.-smoothstep(.2,.5,abs(suv.x))) * (1.-smoothstep(.2,.5,abs(suv.y)));
 	
 	COLOR = vec4(vec3(.2,.2,1.)*pct,textureLod(TEXTURE,UV,0.).a*pow(pct,2.));
-	COLOR.a += pct * (sin(length(ruv)*20.-TIME*10.)*.5+.5) * (1.-smoothstep(.4, .5,length(ruv)));
+	COLOR.a += pct * (sin(length(ruv)*20.-TIME*20.)*.5+.5) * (1.-smoothstep(.4, .5,length(ruv)));
+	COLOR.a *= alpha;
 	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.a = 1.;
 	// Called for every pixel the material is visible on. //textureLod(TEXTURE,UV,0.).a

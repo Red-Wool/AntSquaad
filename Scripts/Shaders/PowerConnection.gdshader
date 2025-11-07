@@ -3,6 +3,10 @@ shader_type canvas_item;
 uniform sampler2D perlin : repeat_enable;
 uniform bool powered;
 
+uniform vec3 unpoweredArrowColor = vec3(.2,.2,1.);
+uniform vec3 poweredArrowHeadColor = vec3(1.,.2,.2);
+uniform vec3 poweredArrowTailColor = vec3(.2,.2,1.);
+
 void vertex() {
 
 	//VERTEX += sin(VERTEX.x+VERTEX.y+TIME*1000.)*1.;
@@ -15,12 +19,22 @@ void fragment() {
 	uv = floor(5.*uv)/5.;
 	if (!powered){
 		vec3 col = vec3(textureLod(perlin, uv*.1-(vec2(1,0))*TIME*.1, 0.).x*.3);
+		float x = fract(uv.x*.1);
+		x += sin(TIME*2.)*.05;
+		float y = abs(uv.y-.5)*.2;
+		y = step(.4,x+y) - step(.6, x+y);
+		
+		col += unpoweredArrowColor * y;
+		
 		col = floor(8.*col)/8.;
+		
 		COLOR = vec4(col,1.);
 	}
 	else{
-		uv.x = fract(uv.x*.1-TIME) + textureLod(perlin, uv*.1-TIME*.3, 0.).x*.5;
-		COLOR = vec4(mix(vec3(.2,.2,1.),vec3(1.,.2,.2),floor(8.*uv.x)/8.),1.);
+		uv.x += abs(uv.y-.5)*5.;
+		uv.x = fract(uv.x*.1-TIME*1.5) + textureLod(perlin, uv*.1-TIME*.3, 0.).x*.5;
+		//uv.x -= abs(uv.y-.5)*1.;
+		COLOR = vec4(mix(poweredArrowTailColor,poweredArrowHeadColor,floor(8.*uv.x)/8.),1.);
 	}
 	// Called for every pixel the material is visible on.
 }
