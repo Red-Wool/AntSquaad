@@ -30,7 +30,9 @@ func _set_output(val):
 	for i in outputs.size():
 		var index = output_indexes[i]
 		outputs[i]._set_input(index, val)
-		output_connection_displays[i].material.set_shader_parameter("powered", val)
+		
+		if output_connection_displays.size() > i:
+			output_connection_displays[i].material.set_shader_parameter("powered", val)
 
 func _set_input(index, val):
 	inputs[index] = val

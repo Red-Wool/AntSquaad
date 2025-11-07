@@ -6,6 +6,7 @@ class_name PowerConnectionDisplay extends Line2D
 @export var input : Powerable
 @export var output : Powerable
 
+@export var manuel : bool
 @export var update : bool:
 	get:
 		return update
@@ -16,7 +17,8 @@ class_name PowerConnectionDisplay extends Line2D
 			_create_display()
 
 func _ready():
-	_create_display()
+	if !manuel:
+		_create_display()
 
 func _create_display_power(i : Powerable, o : Powerable):
 	input = i
