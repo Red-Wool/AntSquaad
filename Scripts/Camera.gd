@@ -26,4 +26,4 @@ func _process(delta):
 	
 	follow /= 1 + player_follow.connected_ants.size()
 	position = lerp(position, follow, delta * follow_speed)
-	zoom = lerp(zoom, Vector2.ONE / max(1, furthest_point_distance / zoom_distance) , delta * zoom_speed)
+	zoom = lerp(zoom, Vector2.ONE / max(1, furthest_point_distance / zoom_distance) * (.5 if Input.is_action_pressed("zoom") else 1.), delta * zoom_speed)
