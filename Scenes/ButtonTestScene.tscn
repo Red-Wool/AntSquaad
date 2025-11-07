@@ -131,7 +131,7 @@ shape = SubResource("RectangleShape2D_u0tna")
 
 [node name="ButtonToggle" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("9_66ec8")]
 z_as_relative = false
-position = Vector2(-102, -42)
+position = Vector2(-103, -41)
 outputs = [NodePath("../Door"), NodePath("../NotGate")]
 
 [node name="ButtonHold" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("10_rwy1a")]

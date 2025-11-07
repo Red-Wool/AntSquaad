@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c04liw3j0wrbo"]
+[gd_scene load_steps=8 format=3 uid="uid://c04liw3j0wrbo"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_xccjd"]
 [ext_resource type="Texture2D" uid="uid://q8ou2jprt3kj" path="res://Art/THEANT.png" id="2_b24yf"]
 [ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="3_cg8vk"]
-[ext_resource type="Script" uid="uid://doc7rhja2fed6" path="res://LevelWarp.gd" id="4_os1sd"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="5_r8dv1"]
+[ext_resource type="PackedScene" uid="uid://k4ir7e5t0vw6" path="res://Prefabs/level_warp.tscn" id="4_nxcxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v06yv"]
 size = Vector2(80, 80)
@@ -15,9 +14,6 @@ size = Vector2(80, 80)
 gradient = SubResource("Gradient_thpdj")
 width = 1152
 height = 648
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_esy05"]
-size = Vector2(123, 128)
 
 [node name="DebugSelectScene" type="Node2D"]
 
@@ -41,16 +37,5 @@ script = ExtResource("3_cg8vk")
 z_index = -10
 texture = SubResource("GradientTexture2D_j7upn")
 
-[node name="LevelWarp" type="Area2D" parent="."]
+[node name="LevelWarp" parent="." instance=ExtResource("4_nxcxe")]
 position = Vector2(-349, -191)
-script = ExtResource("4_os1sd")
-path = "res://AntTestScene.tscn"
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelWarp"]
-texture = ExtResource("5_r8dv1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWarp"]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_esy05")
-
-[connection signal="body_entered" from="LevelWarp" to="LevelWarp" method="_on_body_entered"]
