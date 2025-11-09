@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8tabsu35mkbk"]
+[gd_scene load_steps=10 format=3 uid="uid://b8tabsu35mkbk"]
 
 [ext_resource type="Script" uid="uid://b3ek3nhirjjqb" path="res://Scripts/ButtonHold.gd" id="1_x13hy"]
 [ext_resource type="Texture2D" uid="uid://ct08srf2c5np2" path="res://Art/ButtonOff.png" id="2_tsbhs"]
 [ext_resource type="Texture2D" uid="uid://dgc4da3emag7" path="res://Art/ButtonOn.png" id="3_nv4ut"]
 [ext_resource type="Texture2D" uid="uid://gf4sjtk1u7vh" path="res://Art/ButtonStandOff.png" id="4_roiv4"]
 [ext_resource type="Texture2D" uid="uid://e148sk45hfex" path="res://Art/ButtonStandOn.png" id="5_akpto"]
+[ext_resource type="AudioStream" uid="uid://ufgtm18k53u0" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press On/zapsplat_science_fiction_computer_tone_tone_accept_114882.mp3" id="6_i00nx"]
+[ext_resource type="AudioStream" uid="uid://d07el6j44qrq8" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_error_issue_114868.mp3" id="7_vro1e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o78s"]
 animations = [{
@@ -56,6 +58,12 @@ animation = &"on"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t56wm")
+
+[node name="ButtonOnSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_i00nx")
+
+[node name="ButtonOffSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vro1e")
 
 [connection signal="area_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_exited" from="." to="." method="_on_body_exited"]

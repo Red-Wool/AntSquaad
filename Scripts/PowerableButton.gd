@@ -1,5 +1,8 @@
 class_name PowerableButton extends Powerable
 
+@onready var button_on_sfx : AudioStreamPlayer2D = $ButtonOnSFX
+@onready var button_off_sfx : AudioStreamPlayer2D = $ButtonOffSFX
+
 var count = 0;
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +23,10 @@ func _on_body_exited(body):
 			_update_pressed(false)
 
 func _update_pressed(val):
+	if val:
+		button_on_sfx.play()
+	else:
+		button_off_sfx.play()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
