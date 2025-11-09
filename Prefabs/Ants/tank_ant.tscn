@@ -7,6 +7,7 @@
 size = Vector2(40, 40)
 
 [node name="TankAnt" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_sm6t3")
 
 [node name="Visual" type="Sprite2D" parent="."]

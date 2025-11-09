@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://twndk63e4npt"]
+
+[ext_resource type="Script" uid="uid://eyw0kikajl3x" path="res://Scripts/AntConnector.gd" id="1_f27gv"]
+[ext_resource type="Shader" uid="uid://468ly2rjj62y" path="res://Scripts/Shaders/DigitalDisappear.gdshader" id="1_ou514"]
+[ext_resource type="Texture2D" uid="uid://bmqpm6enprj0e" path="res://Art/WRONG.png" id="3_tku0j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tku0j"]
+shader = ExtResource("1_ou514")
+
+[sub_resource type="Gradient" id="Gradient_f27gv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ou514"]
+gradient = SubResource("Gradient_f27gv")
+
+[node name="AntConnector" type="Line2D"]
+auto_translate_mode = 2
+material = SubResource("ShaderMaterial_tku0j")
+points = PackedVector2Array(0, 0, 0, 0, 0, 0)
+texture_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
+script = ExtResource("1_f27gv")
+
+[node name="Square" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_ou514")
+
+[node name="WRONG" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_tku0j")

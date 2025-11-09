@@ -4,6 +4,9 @@ class_name PlayerAnt extends BaseAnt
 @export var max_speed_range : float
 
 @onready var ant_signal_prefab : PackedScene = preload("res://Prefabs/Hazards/ant_signal.tscn")
+@onready var ant_connection_prefab : PackedScene = preload("res://Prefabs/ant_connector.tscn")
+
+@onready var ant_connection_visual : CanvasGroup = $AntConnectionVisual
 
 @onready var ant_signal_sfx : AudioStreamPlayer2D = $AntSignalSFX
 @onready var ant_connect_sfx : AudioStreamPlayer2D = $AntConnectSFX
@@ -50,6 +53,11 @@ func _connect_ant(ant : Ant):
 		ant_movement.connect(ant._connected_movement)
 		connected_ants.append(ant)
 		
+		var ant_connector : AntConnector = ant_connection_prefab.instantiate()
+		ant_connection_visual.add_child(ant_connector)
+		ant_connector.global_position = global_position
+		ant_connector.connected_ant = ant
+		
 		ant_connect_sfx.play()
 
 func _connected_ant_death(ant : Ant):
@@ -64,6 +72,9 @@ func _connected_ant_death(ant : Ant):
 func _disconnect_ants():
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
+	
+	for visual in ant_connection_visual.get_children():
+		visual._death()
 	connected_ants.clear()
 	ant_disconnect_sfx.play()
 

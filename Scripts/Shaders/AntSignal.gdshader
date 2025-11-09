@@ -15,10 +15,11 @@ void fragment() {
 	vec2 suv = world_position;
 	
 	vec2 ruv = UV;
+	ruv = floor(ruv*32.)/32.;
 	ruv -= .5;
 	//ruv.x *= SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
 	
-	ruv = floor(ruv*32.)/32.;
+	
 	
 	suv = floor(suv*1.)/1.;
 	//suv += normalize(ruv)*TIME;
@@ -31,6 +32,8 @@ void fragment() {
 	COLOR = vec4(vec3(.2,.2,1.)*pct,textureLod(TEXTURE,UV,0.).a*pow(pct,2.));
 	COLOR.a += pct * (sin(length(ruv)*20.-TIME*20.)*.5+.5) * (1.-smoothstep(.4, .5,length(ruv)));
 	COLOR.a *= alpha;
+	COLOR.a = min(COLOR.a, (1.-smoothstep(.45,.49,length(UV-.5))));
+	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.a = 1.;
 	// Called for every pixel the material is visible on. //textureLod(TEXTURE,UV,0.).a
