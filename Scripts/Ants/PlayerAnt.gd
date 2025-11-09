@@ -11,6 +11,7 @@ class_name PlayerAnt extends BaseAnt
 @onready var ant_signal_sfx : AudioStreamPlayer2D = $AntSignalSFX
 @onready var ant_connect_sfx : AudioStreamPlayer2D = $AntConnectSFX
 @onready var ant_disconnect_sfx : AudioStreamPlayer2D = $AntDisconnectSFX
+@onready var ant_real_disconnect_sfx : AudioStreamPlayer2D = $AntRealDisconnectSFX
 
 var move_difference : Vector2
 
@@ -68,8 +69,12 @@ func _connected_ant_death(ant : Ant):
 				ant_movement.disconnect(connected_ants[index]._connected_movement)
 				break
 		connected_ants.remove_at(index)
+		ant_real_disconnect_sfx.play()
 
 func _disconnect_ants():
+	if ant_connection_visual.get_children().size() > 0:
+		ant_real_disconnect_sfx.play()
+	
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
 	
