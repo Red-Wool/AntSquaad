@@ -27,9 +27,11 @@ void fragment() {
 	COLOR = textureLod(screen, suv * SCREEN_PIXEL_SIZE, 0.);
 	
 	float pct = sin(length(luv)*.1-TIME*4.)*.5+.5;
-	COLOR.rgb = vec3(1.,.2,.2)*pct + vec3(.2,.2,1.)*(1.-pct);
-	COLOR.rgb = floor(COLOR.rgb*4.)/4.;
+	pct = floor(pct*3.)/2.;
+	COLOR.rgb = vec3(1.,.31,.41)*pct + vec3(.29,.91,89.)*(1.-pct);
+	//COLOR.rgb = floor(COLOR.rgb*4.)/4.;
 	COLOR.a = floor(COLOR.a);
+	//COLOR.rgb = vec3(1.,.31,.41);
 
 	// Called for every pixel the material is visible on.
 }
