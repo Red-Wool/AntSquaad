@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://kc6rsd4q3abl"]
+[gd_scene load_steps=9 format=3 uid="uid://kc6rsd4q3abl"]
 
 [ext_resource type="Script" uid="uid://b4kdravfxpmwg" path="res://Scripts/Hazards/KillZone.gd" id="1_focej"]
 [ext_resource type="Texture2D" uid="uid://dmblxgd47nd1c" path="res://Art/AntDisconnector.png" id="2_0rimb"]
 [ext_resource type="Shader" uid="uid://bmjch4s3kyh87" path="res://Scripts/Shaders/Glitch.gdshader" id="2_imvvl"]
+[ext_resource type="AudioStream" uid="uid://bx32ku50nyuoj" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Die/zapsplat_science_fiction_computer_tone_tone_error_114885.mp3" id="4_5jinb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rwyu"]
 size = Vector2(128, 128)
@@ -32,5 +33,8 @@ material = SubResource("ShaderMaterial_5jinb")
 texture = ExtResource("2_0rimb")
 region_enabled = true
 region_rect = Rect2(-48, -48, 224, 224)
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5jinb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

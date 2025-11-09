@@ -1,6 +1,8 @@
 class_name KillZone extends Area2D
 @export var disable_after_hit: bool = true
 
+@onready var death_sfx : AudioStreamPlayer2D = $DeathSFX
+
 func _ready() -> void: 
 	monitoring = true
 	#body_entered.connect(_on_body_entered)
@@ -12,3 +14,4 @@ func _on_body_entered(body) -> void:
 			set_deferred("monitoring", false)
 			queue_free()
 		body._death()
+		death_sfx.play()
