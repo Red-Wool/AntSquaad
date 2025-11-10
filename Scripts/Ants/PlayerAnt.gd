@@ -13,6 +13,8 @@ class_name PlayerAnt extends BaseAnt
 @onready var ant_disconnect_sfx : AudioStreamPlayer2D = $AntDisconnectSFX
 @onready var ant_real_disconnect_sfx : AudioStreamPlayer2D = $AntRealDisconnectSFX
 
+@onready var fun_mode_music : AudioStreamPlayer2D = $FunModeMusic
+
 var move_difference : Vector2
 
 var connected_ants : Array[Ant]
@@ -22,6 +24,10 @@ signal ant_movement(movement : Vector2)
 
 func _process(delta):
 	super(delta)
+	if Input.is_action_just_pressed("fun"):
+		fun_mode_music.play()
+	elif Input.is_action_just_released("fun"):
+		fun_mode_music.stop()
 
 func _physics_process(delta):
 	
@@ -32,6 +38,9 @@ func _physics_process(delta):
 	#WASD
 	var move = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	move = move.normalized() * speed
+	
+	if Input.is_action_pressed("fun"):
+		move *= 2
 	
 	velocity = move * delta
 	

@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://brja2korku7uu"]
+[gd_scene load_steps=11 format=3 uid="uid://brja2korku7uu"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_61ujp"]
-[ext_resource type="Texture2D" uid="uid://psavh01l3pra" path="res://Art/NORMALANT-Sheet.png" id="2_f1fyj"]
+[ext_resource type="Texture2D" uid="uid://xfswcygwudyp" path="res://Art/player_ant.png" id="2_5ycmv"]
 [ext_resource type="AudioStream" uid="uid://6r1ervenp0q8" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Connected/zapsplat_science_fiction_computer_tone_chime_ping_114862.mp3" id="3_i8eq4"]
 [ext_resource type="AudioStream" uid="uid://dvdnwb7yv42uj" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Signal/zapsplat_science_fiction_computer_tone_prompt_short_114877.mp3" id="4_2n0ci"]
 [ext_resource type="AudioStream" uid="uid://f2yfakgqmiud" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/zapsplat_science_fiction_computer_tone_dry_beep_button_001_114863.mp3" id="5_nhsor"]
 [ext_resource type="Shader" uid="uid://c1hhakw2uffxy" path="res://Scripts/Shaders/ConnectionVisuals.gdshader" id="6_5ycmv"]
 [ext_resource type="AudioStream" uid="uid://ppsoktn8cytn" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3" id="6_x7tw5"]
+[ext_resource type="AudioStream" uid="uid://bxw24o11nxbdl" path="res://Sound/FunMode.mp3" id="7_x7tw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
@@ -23,9 +24,7 @@ max_speed_range = 100.0
 
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 3
-texture = ExtResource("2_f1fyj")
-hframes = 3
-vframes = 2
+texture = ExtResource("2_5ycmv")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e4s6w")
@@ -41,6 +40,9 @@ stream = ExtResource("5_nhsor")
 
 [node name="AntRealDisconnectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_x7tw5")
+
+[node name="FunModeMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_x7tw5")
 
 [node name="AntConnectionVisual" type="CanvasGroup" parent="."]
 z_index = -5
