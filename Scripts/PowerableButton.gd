@@ -23,6 +23,7 @@ func _on_body_exited(body):
 			_update_pressed(false)
 
 func _update_pressed(val):
+	CameraManager._zoom_in(.99)
 	if val:
 		button_on_sfx.play()
 	else:

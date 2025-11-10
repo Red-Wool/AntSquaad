@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_xccjd"]
 [ext_resource type="Texture2D" uid="uid://q8ou2jprt3kj" path="res://Art/THEANT.png" id="2_b24yf"]
-[ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/Camera.gd" id="3_cg8vk"]
+[ext_resource type="Script" uid="uid://c1q7nb44wgs7q" path="res://Scripts/PlayerCamera.gd" id="3_cg8vk"]
 [ext_resource type="PackedScene" uid="uid://k4ir7e5t0vw6" path="res://Prefabs/level_warp.tscn" id="4_nxcxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v06yv"]

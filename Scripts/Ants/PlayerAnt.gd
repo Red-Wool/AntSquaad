@@ -57,6 +57,7 @@ func _physics_process(delta):
 		ant_signal._trigger_signal(self, 200, .5)
 		
 		ant_signal_sfx.play()
+		CameraManager._zoom_in(.99)
 
 func _connect_ant(ant : Ant):
 	if !ant_movement.is_connected(ant._connected_movement):
@@ -79,10 +80,12 @@ func _connected_ant_death(ant : Ant):
 				break
 		connected_ants.remove_at(index)
 		ant_real_disconnect_sfx.play()
+		CameraManager._screen_shake(Vector2(15,15), .4)
 
 func _disconnect_ants():
 	if ant_connection_visual.get_children().size() > 0:
 		ant_real_disconnect_sfx.play()
+		CameraManager._screen_shake(Vector2(10,0), .3)
 	
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
