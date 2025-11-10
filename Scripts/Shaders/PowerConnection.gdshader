@@ -3,9 +3,9 @@ shader_type canvas_item;
 uniform sampler2D perlin : repeat_enable;
 uniform bool powered;
 
-uniform vec3 unpoweredArrowColor = vec3(.2,.2,1.);
-uniform vec3 poweredArrowHeadColor = vec3(1.,.2,.2);
-uniform vec3 poweredArrowTailColor = vec3(.2,.2,1.);
+uniform vec3 unpoweredArrowColor = vec3(.2,.41,.86);
+uniform vec3 poweredArrowHeadColor = vec3(1.,.31,.41);
+uniform vec3 poweredArrowTailColor = vec3(.29,.91,.89);
 
 void vertex() {
 
@@ -34,7 +34,7 @@ void fragment() {
 		uv.x += abs(uv.y-.5)*5.;
 		uv.x = fract(uv.x*.1-TIME*1.5) + textureLod(perlin, uv*.1-TIME*.3, 0.).x*.5;
 		//uv.x -= abs(uv.y-.5)*1.;
-		COLOR = vec4(mix(poweredArrowTailColor,poweredArrowHeadColor,floor(8.*uv.x)/8.),1.);
+		COLOR = vec4(mix(poweredArrowTailColor,poweredArrowHeadColor,floor(4.*uv.x)/4.),1.);
 	}
 	// Called for every pixel the material is visible on.
 }

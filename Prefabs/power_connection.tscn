@@ -16,9 +16,9 @@ resource_local_to_scene = true
 shader = ExtResource("1_uqist")
 shader_parameter/perlin = SubResource("NoiseTexture2D_61c0d")
 shader_parameter/powered = false
-shader_parameter/unpoweredArrowColor = Vector3(0.2, 0.2, 1)
-shader_parameter/poweredArrowHeadColor = Vector3(1, 0.2, 0.2)
-shader_parameter/poweredArrowTailColor = Vector3(0.2, 0.2, 1)
+shader_parameter/unpoweredArrowColor = Vector3(0.2, 0.41, 0.86)
+shader_parameter/poweredArrowHeadColor = Vector3(1, 0.31, 0.41)
+shader_parameter/poweredArrowTailColor = Vector3(0.29, 0.91, 0.89)
 
 [sub_resource type="Gradient" id="Gradient_yprwc"]
 
