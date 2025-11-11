@@ -5,3 +5,8 @@ class_name AxisAnt extends Ant
 func _connected_movement(movement : Vector2):
 	velocity = movement * speed_multiplier
 	move_and_slide()
+	
+	if movement != Vector2.ZERO:
+		animation.play("walk")
+	else:
+		animation.stop()

@@ -12,13 +12,13 @@ void fragment() {
 	uv = floor(uv / tps) * tps;
 	float pct = 0.;
 	
-	for (int x = -1; x < 2; x++){
-		for (int y = -1; y < 2; y++){
-			pct = max(pct, textureLod(TEXTURE, uv+vec2(float(x),float(y))*tps,0.).a);
+	for (int x = -1; x < 4; x++){
+		for (int y = -1; y < 4; y++){
+			pct = max(pct, textureLod(TEXTURE, uv+vec2(float(x),float(y))*tps*.5,0.).a);
 		}
 	}
 	
-	vec4 col = textureLod(TEXTURE, uv, 0.);
+	vec4 col = textureLod(TEXTURE, UV, 0.);
 	col.rgb = col.rgb * (col.a) + outlineColor * (1. - col.a);
 	col.a = pct;
 	

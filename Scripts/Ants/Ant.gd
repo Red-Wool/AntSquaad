@@ -12,6 +12,12 @@ func _connect_ant(player : PlayerAnt):
 func _connected_movement(movement : Vector2):
 	velocity = movement
 	move_and_slide()
+	
+	if movement != Vector2.ZERO:
+		animation.play("walk")
+		visual.flip_h = movement.x < 0
+	else:
+		animation.stop()
 
 func _death():
 	print("death")

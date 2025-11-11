@@ -39,6 +39,13 @@ func _physics_process(delta):
 	var move = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	move = move.normalized() * speed
 	
+	
+	if move != Vector2.ZERO:
+		animation.play("walk")
+		visual.flip_h = move.x < 0
+	else:
+		animation.stop()
+	
 	if Input.is_action_pressed("fun"):
 		move *= 2
 	

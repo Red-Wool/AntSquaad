@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://brja2korku7uu"]
+[gd_scene load_steps=16 format=3 uid="uid://brja2korku7uu"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_61ujp"]
-[ext_resource type="Texture2D" uid="uid://xfswcygwudyp" path="res://Art/player_ant.png" id="2_5ycmv"]
 [ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_akjbu"]
+[ext_resource type="Texture2D" uid="uid://2l1ukr5xvb1n" path="res://Art/player_ant-Sheet.png" id="3_akjbu"]
 [ext_resource type="AudioStream" uid="uid://6r1ervenp0q8" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Connected/zapsplat_science_fiction_computer_tone_chime_ping_114862.mp3" id="3_i8eq4"]
 [ext_resource type="AudioStream" uid="uid://dvdnwb7yv42uj" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Signal/zapsplat_science_fiction_computer_tone_prompt_short_114877.mp3" id="4_2n0ci"]
 [ext_resource type="AudioStream" uid="uid://f2yfakgqmiud" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/zapsplat_science_fiction_computer_tone_dry_beep_button_001_114863.mp3" id="5_nhsor"]
@@ -21,6 +21,45 @@ size = Vector2(40, 40)
 shader = ExtResource("6_5ycmv")
 shader_parameter/pixelSize = 0.5
 
+[sub_resource type="Animation" id="Animation_akjbu"]
+resource_name = "walk"
+length = 0.41667086
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_twbd7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twbd7"]
+_data = {
+&"RESET": SubResource("Animation_twbd7"),
+&"walk": SubResource("Animation_akjbu")
+}
+
 [node name="PlayerAnt" type="CharacterBody2D"]
 z_index = 10
 script = ExtResource("1_61ujp")
@@ -30,7 +69,9 @@ max_speed_range = 100.0
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 3
 material = SubResource("ShaderMaterial_twbd7")
-texture = ExtResource("2_5ycmv")
+texture = ExtResource("3_akjbu")
+hframes = 3
+vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e4s6w")
@@ -53,3 +94,8 @@ stream = ExtResource("7_x7tw5")
 [node name="AntConnectionVisual" type="CanvasGroup" parent="."]
 z_index = -5
 material = SubResource("ShaderMaterial_5ycmv")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_twbd7")
+}

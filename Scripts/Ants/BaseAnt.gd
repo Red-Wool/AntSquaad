@@ -3,6 +3,7 @@ class_name BaseAnt extends CharacterBody2D
 
 @export var can_hold_object : bool
 @onready var visual : Sprite2D = $Visual
+@onready var animation : AnimationPlayer = $Animation
 
 var is_holding_object : bool
 var object_held : GrabbableObject
