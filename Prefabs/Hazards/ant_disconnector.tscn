@@ -18,3 +18,4 @@ texture = ExtResource("2_567o5")
 region_rect = Rect2(0, 13.5, 195, 64)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

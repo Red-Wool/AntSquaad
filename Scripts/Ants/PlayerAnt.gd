@@ -19,6 +19,7 @@ var move_difference : Vector2
 
 var connected_ants : Array[Ant]
 
+var disconnector_count : int = 0
 
 signal ant_movement(movement : Vector2)
 
