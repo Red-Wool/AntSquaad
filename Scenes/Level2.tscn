@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://hqghts2l20f3"]
+[gd_scene load_steps=13 format=4 uid="uid://hqghts2l20f3"]
 
 [ext_resource type="PackedScene" uid="uid://c18jtshdl06ho" path="res://Prefabs/player_camera.tscn" id="1_p4u3k"]
 [ext_resource type="PackedScene" uid="uid://brja2korku7uu" path="res://Prefabs/Ants/player_ant.tscn" id="2_70df5"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b8tabsu35mkbk" path="res://Prefabs/Hazards/button_hold.tscn" id="6_ejprb"]
 [ext_resource type="PackedScene" uid="uid://kc6rsd4q3abl" path="res://Prefabs/Hazards/kill_zone.tscn" id="7_ejprb"]
 [ext_resource type="PackedScene" uid="uid://k4ir7e5t0vw6" path="res://Prefabs/level_warp.tscn" id="8_2jwna"]
+[ext_resource type="PackedScene" uid="uid://bqm476yqfhkc6" path="res://Prefabs/Hazards/and_gate.tscn" id="9_62f1r"]
 
 [node name="TestLevel1" type="Node2D"]
 
@@ -41,12 +42,6 @@ position = Vector2(-192, -192)
 position = Vector2(0, -192)
 outputs = [NodePath("../Door")]
 
-[node name="AntDisconnector2" parent="LevelObjects" instance=ExtResource("4_p4u3k")]
-position = Vector2(768, 256)
-
-[node name="AntDisconnector3" parent="LevelObjects" instance=ExtResource("4_p4u3k")]
-position = Vector2(768, 384)
-
 [node name="KillZone" parent="LevelObjects" instance=ExtResource("7_ejprb")]
 position = Vector2(1088, -448)
 
@@ -56,9 +51,27 @@ position = Vector2(1088, -320)
 [node name="KillZone3" parent="LevelObjects" instance=ExtResource("7_ejprb")]
 position = Vector2(1664, -320)
 
+[node name="KillZone4" parent="LevelObjects" instance=ExtResource("7_ejprb")]
+position = Vector2(768, 384)
+
+[node name="KillZone5" parent="LevelObjects" instance=ExtResource("7_ejprb")]
+position = Vector2(768, 256)
+
 [node name="ButtonToggle" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("5_62f1r")]
-position = Vector2(1344, -320)
+position = Vector2(1344, -192)
+outputs = [NodePath("../AndGate")]
+
+[node name="ButtonToggle2" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("5_62f1r")]
+position = Vector2(1344, 128)
+outputs = [NodePath("../AndGate")]
+
+[node name="AndGate" parent="LevelObjects" node_paths=PackedStringArray("outputs") instance=ExtResource("9_62f1r")]
+position = Vector2(1632, 96)
 outputs = [NodePath("../Door2")]
+
+[node name="LevelWarp" parent="LevelObjects" instance=ExtResource("8_2jwna")]
+position = Vector2(2112, 256)
+path = "res://Scenes/Level3.tscn"
 
 [node name="TileMapLayer" parent="." instance=ExtResource("3_ejprb")]
 z_index = -5
@@ -68,6 +81,3 @@ tile_map_data = PackedByteArray("AADy/wgAAAACAAYAAADz/wgAAAACAAYAAAD0/wgAAAACAAY
 [node name="Background" parent="." instance=ExtResource("4_au75x")]
 position = Vector2(-13.999999, -20.999998)
 scale = Vector2(5, 5)
-
-[node name="LevelWarp" parent="." instance=ExtResource("8_2jwna")]
-position = Vector2(2112, 256)
