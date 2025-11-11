@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://utp8mun0a3kn"]
+[gd_scene load_steps=6 format=3 uid="uid://utp8mun0a3kn"]
 
 [ext_resource type="Script" uid="uid://cp625cyfiy0w1" path="res://Scripts/Ants/EvilAnt.gd" id="1_6ytj3"]
 [ext_resource type="Texture2D" uid="uid://dopwbu5kfpu0a" path="res://Art/EVILANT-Sheet.png" id="2_bxwac"]
+[ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_mnre2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ogtmc"]
+shader = ExtResource("2_mnre2")
+shader_parameter/outlineColor = Vector3(0.17, 0.03, 0.33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
@@ -12,6 +17,7 @@ script = ExtResource("1_6ytj3")
 
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 3
+material = SubResource("ShaderMaterial_ogtmc")
 texture = ExtResource("2_bxwac")
 hframes = 3
 vframes = 2

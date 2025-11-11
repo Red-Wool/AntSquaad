@@ -1,13 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://brja2korku7uu"]
+[gd_scene load_steps=13 format=3 uid="uid://brja2korku7uu"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_61ujp"]
 [ext_resource type="Texture2D" uid="uid://xfswcygwudyp" path="res://Art/player_ant.png" id="2_5ycmv"]
+[ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_akjbu"]
 [ext_resource type="AudioStream" uid="uid://6r1ervenp0q8" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Connected/zapsplat_science_fiction_computer_tone_chime_ping_114862.mp3" id="3_i8eq4"]
 [ext_resource type="AudioStream" uid="uid://dvdnwb7yv42uj" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Signal/zapsplat_science_fiction_computer_tone_prompt_short_114877.mp3" id="4_2n0ci"]
 [ext_resource type="AudioStream" uid="uid://f2yfakgqmiud" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/zapsplat_science_fiction_computer_tone_dry_beep_button_001_114863.mp3" id="5_nhsor"]
 [ext_resource type="Shader" uid="uid://c1hhakw2uffxy" path="res://Scripts/Shaders/ConnectionVisuals.gdshader" id="6_5ycmv"]
 [ext_resource type="AudioStream" uid="uid://ppsoktn8cytn" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3" id="6_x7tw5"]
 [ext_resource type="AudioStream" uid="uid://bxw24o11nxbdl" path="res://Sound/FunMode.mp3" id="7_x7tw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twbd7"]
+shader = ExtResource("2_akjbu")
+shader_parameter/outlineColor = Vector3(0.17, 0.03, 0.33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
@@ -24,6 +29,7 @@ max_speed_range = 100.0
 
 [node name="Visual" type="Sprite2D" parent="."]
 texture_filter = 3
+material = SubResource("ShaderMaterial_twbd7")
 texture = ExtResource("2_5ycmv")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
