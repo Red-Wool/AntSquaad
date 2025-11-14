@@ -12,10 +12,10 @@ float rand(float x){
 
 void fragment() {
 	vec2 uv = UV;
-	uv = floor(uv * 64.)/64.;
+	uv = floor(uv * 128.)/128.;
 
 	vec2 puv = UV;
-	puv = floor(puv * 16.)/16.;
+	puv = floor(puv * 32.)/32.;
 	float t = floor(TIME*2.)/2.;
 	//uv.y += (rand(puv.y+puv.x+t)-.5)*.1;
 	//uv.x += (rand(puv.y+puv.x-t*124.27)-.5)*.1;

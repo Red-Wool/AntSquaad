@@ -31,8 +31,7 @@ modulate = Color(1, 0, 0.016666412, 1)
 texture_filter = 3
 material = SubResource("ShaderMaterial_5jinb")
 texture = ExtResource("3_5jinb")
-region_enabled = true
-region_rect = Rect2(-48, -48, 224, 224)
+region_rect = Rect2(0, 0, 256, 256)
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5jinb")
