@@ -29,11 +29,11 @@ void fragment() {
 	
 	float pct = (1.-smoothstep(.2,.5,abs(suv.x))) * (1.-smoothstep(.2,.5,abs(suv.y)));
 	
-	COLOR = vec4(vec3(.29,.91,89.)*pct,textureLod(TEXTURE,UV,0.).a*pow(pct,2.));
+	COLOR = vec4(vec3(1.,.84,.27)*pct,textureLod(TEXTURE,UV,0.).a*pow(pct,2.));
 	COLOR.a += pct * (sin(length(ruv)*20.-TIME*20.)*.5+.5) * (1.-smoothstep(.4, .5,length(ruv)));
 	COLOR.a *= alpha;
 	COLOR.a = min(COLOR.a, (1.-smoothstep(.45,.49,length(UV-.5))));
-	COLOR.a = floor(COLOR.a*2.)/1.;
+	COLOR.a = (floor(COLOR.a*2.)/1.)*.9;
 	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.a = 1.;

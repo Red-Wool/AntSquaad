@@ -73,6 +73,7 @@ size = Vector2(100, 100)
 
 [node name="PlayerAnt" parent="." instance=ExtResource("2_pbbgj")]
 unique_name_in_owner = true
+position = Vector2(-7, 1)
 
 [node name="Ant" parent="." instance=ExtResource("3_d6agh")]
 position = Vector2(291, -125)

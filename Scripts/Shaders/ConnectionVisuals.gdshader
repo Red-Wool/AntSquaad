@@ -27,11 +27,13 @@ void fragment() {
 	
 	float t = (floor(TIME*12.)/12.);
 	
+	float l = (sin(length(luv*.1)-TIME*1.)*.4+.6);
+	
 	vec2 auv = floor(worldPos*.5)/.5;
 	auv*=.5;
 	//suv += normalize(ruv)*TIME;
 	auv += t*0.;
-	//auv += .5;
+	auv += .5 * step(length(luv), moveTimer) * l;
 	auv = fract(auv*.2);
 	auv -= .5;
 	
@@ -40,11 +42,14 @@ void fragment() {
 	vec2 suv = ((canvas) * vec4(uv, 0, 1)).xy;
 	COLOR = textureLod(screen, suv * SCREEN_PIXEL_SIZE, 0.);
 	
-	float pct = sin(length(luv)*.1-TIME*4.)*.5+.5;
+	float pct = sin(length(luv)*.1-TIME*1.)*.5+.5;
 	pct = floor(pct*3.)/2.;
-	COLOR.rgb = vec3(1.,.31,.41)*pct + vec3(.29,.91,89.)*(1.-pct);
+	COLOR.rgb = vec3(1.,.31,.41)*pct + vec3(1.,.84,.27)*(1.-pct);
 	//COLOR.rgb = floor(COLOR.rgb*4.)/4.;
-	
+	//vec3(.29,.91,.89) light blue
+	//1.,.31,.41) red
+	//.68, .12, .40 dark red
+	//1.,.84,.27 yellow
 	COLOR.a *= act;
 	COLOR.a = floor(COLOR.a);
 	//COLOR.rgb = vec3(1.,.31,.41);

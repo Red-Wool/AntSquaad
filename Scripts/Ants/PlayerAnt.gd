@@ -21,6 +21,7 @@ var move_difference : Vector2
 var connected_ants : Array[Ant]
 
 var disconnector_count : int = 0
+var move_timer : float
 
 signal ant_movement(movement : Vector2)
 
@@ -41,13 +42,16 @@ func _physics_process(delta):
 	var move = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	move = move.normalized() * speed
 	
-	ant_connection_hexagon.rotation_degrees += 180 * delta
+	ant_connection_hexagon.rotation_degrees += 60 * delta
 	
 	if move != Vector2.ZERO:
 		animation.play("walk")
 		visual.flip_h = move.x < 0
+		move_timer += delta
 	else:
 		animation.stop()
+		move_timer = lerp(move_timer, 0., delta*5.)
+	ant_connection_visual.material.set_shader_parameter("moveTimer", move_timer*400.)
 	
 	if Input.is_action_pressed("fun"):
 		move *= 2

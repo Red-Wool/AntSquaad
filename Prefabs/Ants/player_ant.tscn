@@ -98,6 +98,7 @@ z_index = -5
 material = SubResource("ShaderMaterial_5ycmv")
 
 [node name="Hexagon" type="Sprite2D" parent="AntConnectionVisual"]
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("10_twbd7")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
