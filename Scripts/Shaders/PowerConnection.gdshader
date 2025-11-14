@@ -26,7 +26,7 @@ void fragment() {
 		
 		col += unpoweredArrowColor * y;
 		
-		col = floor(8.*col)/8.;
+		col = floor(3.*col)/2.;
 		
 		COLOR = vec4(col,1.);
 	}
@@ -34,7 +34,7 @@ void fragment() {
 		uv.x += abs(uv.y-.5)*5.;
 		uv.x = fract(uv.x*.1-TIME*1.5) + textureLod(perlin, uv*.1-TIME*.3, 0.).x*.5;
 		//uv.x -= abs(uv.y-.5)*1.;
-		COLOR = vec4(mix(poweredArrowTailColor,poweredArrowHeadColor,floor(4.*uv.x)/4.),1.);
+		COLOR = vec4(mix(poweredArrowTailColor,poweredArrowHeadColor,floor(3.*uv.x)/2.),1.);
 	}
 	// Called for every pixel the material is visible on.
 }
