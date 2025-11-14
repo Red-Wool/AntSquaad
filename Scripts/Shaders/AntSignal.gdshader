@@ -33,7 +33,7 @@ void fragment() {
 	COLOR.a += pct * (sin(length(ruv)*20.-TIME*20.)*.5+.5) * (1.-smoothstep(.4, .5,length(ruv)));
 	COLOR.a *= alpha;
 	COLOR.a = min(COLOR.a, (1.-smoothstep(.45,.49,length(UV-.5))));
-	COLOR.a = floor(COLOR.a*4.)/2.;
+	COLOR.a = floor(COLOR.a*2.)/1.;
 	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.rgb = vec3(length(ruv));
 	//COLOR.a = 1.;
