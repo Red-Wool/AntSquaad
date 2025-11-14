@@ -22,6 +22,7 @@ end_cap_mode = 1
 script = ExtResource("1_f27gv")
 
 [node name="Square" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
 texture = SubResource("GradientTexture2D_ou514")
 
 [node name="WRONG" type="Sprite2D" parent="."]

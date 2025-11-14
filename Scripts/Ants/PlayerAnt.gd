@@ -7,6 +7,7 @@ class_name PlayerAnt extends BaseAnt
 @onready var ant_connection_prefab : PackedScene = preload("res://Prefabs/ant_connector.tscn")
 
 @onready var ant_connection_visual : CanvasGroup = $AntConnectionVisual
+@onready var ant_connection_hexagon : Sprite2D = $AntConnectionVisual/Hexagon
 
 @onready var ant_signal_sfx : AudioStreamPlayer2D = $AntSignalSFX
 @onready var ant_connect_sfx : AudioStreamPlayer2D = $AntConnectSFX
@@ -40,6 +41,7 @@ func _physics_process(delta):
 	var move = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	move = move.normalized() * speed
 	
+	ant_connection_hexagon.rotation_degrees += 180 * delta
 	
 	if move != Vector2.ZERO:
 		animation.play("walk")
@@ -78,6 +80,9 @@ func _connect_ant(ant : Ant):
 		ant_connector.connected_ant = ant
 		
 		ant_connect_sfx.play()
+		
+		ant_connection_hexagon.scale = Vector2.ZERO
+		get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC).tween_property(ant_connection_hexagon, "scale", Vector2.ONE, 1)
 
 func _connected_ant_death(ant : Ant):
 	var index : int = connected_ants.find(ant)
@@ -89,6 +94,9 @@ func _connected_ant_death(ant : Ant):
 		connected_ants.remove_at(index)
 		ant_real_disconnect_sfx.play()
 		CameraManager._screen_shake(Vector2(15,15), .4)
+	
+	if connected_ants.size() == 0:
+		get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).tween_property(ant_connection_hexagon, "scale", Vector2.ZERO, .5)
 
 func _disconnect_ants():
 	if ant_connection_visual.get_children().size() > 0:
@@ -98,10 +106,12 @@ func _disconnect_ants():
 	for connection in ant_movement.get_connections():
 		ant_movement.disconnect(connection.callable)
 	
-	for visual in ant_connection_visual.get_children():
-		visual._death()
+	for ant_visual in ant_connection_visual.get_children():
+		if ant_visual is AntConnector:
+			ant_visual._death()
 	connected_ants.clear()
 	ant_disconnect_sfx.play()
+	get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).tween_property(ant_connection_hexagon, "scale", Vector2.ZERO, .5)
 
 func _death():
 	_disconnect_ants()

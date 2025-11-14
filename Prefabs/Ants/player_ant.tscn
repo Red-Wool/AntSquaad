@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brja2korku7uu"]
+[gd_scene load_steps=17 format=3 uid="uid://brja2korku7uu"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_61ujp"]
 [ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_akjbu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://c1hhakw2uffxy" path="res://Scripts/Shaders/ConnectionVisuals.gdshader" id="6_5ycmv"]
 [ext_resource type="AudioStream" uid="uid://ppsoktn8cytn" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3" id="6_x7tw5"]
 [ext_resource type="AudioStream" uid="uid://bxw24o11nxbdl" path="res://Sound/FunMode.mp3" id="7_x7tw5"]
+[ext_resource type="Texture2D" uid="uid://b5glyy8py33ml" path="res://Art/hexagon.png" id="10_twbd7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_twbd7"]
 shader = ExtResource("2_akjbu")
@@ -20,6 +21,21 @@ size = Vector2(40, 40)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ycmv"]
 shader = ExtResource("6_5ycmv")
 shader_parameter/pixelSize = 0.5
+
+[sub_resource type="Animation" id="Animation_twbd7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_akjbu"]
 resource_name = "walk"
@@ -37,21 +53,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
-}
-
-[sub_resource type="Animation" id="Animation_twbd7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twbd7"]
@@ -94,6 +95,10 @@ stream = ExtResource("7_x7tw5")
 [node name="AntConnectionVisual" type="CanvasGroup" parent="."]
 z_index = -5
 material = SubResource("ShaderMaterial_5ycmv")
+
+[node name="Hexagon" type="Sprite2D" parent="AntConnectionVisual"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("10_twbd7")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
