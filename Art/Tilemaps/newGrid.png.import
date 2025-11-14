@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqb5kjw8plhs2"
-path="res://.godot/imported/BlueTIlemap.png-82c9dc77a9be99f4845a3f8b1936e86a.ctex"
+uid="uid://ccr3a2grhgl7b"
+path="res://.godot/imported/newGrid.png-7a00604f70511fd0a6747067ecff3a28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BlueTIlemap.png"
-dest_files=["res://.godot/imported/BlueTIlemap.png-82c9dc77a9be99f4845a3f8b1936e86a.ctex"]
+source_file="res://Art/Tilemaps/newGrid.png"
+dest_files=["res://.godot/imported/newGrid.png-7a00604f70511fd0a6747067ecff3a28.ctex"]
 
 [params]
 

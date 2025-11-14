@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ku7pxrrwlbc5"
-path="res://.godot/imported/axis_ant_ppt_style-Sheet.png-21a6ecefa05066f63a6c223380279ad8.ctex"
+uid="uid://bdt5yam5np5wb"
+path="res://.godot/imported/TANKANT-Sheet.png-9b8458d07066313a21a217c878ac165f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/axis_ant_ppt_style-Sheet.png"
-dest_files=["res://.godot/imported/axis_ant_ppt_style-Sheet.png-21a6ecefa05066f63a6c223380279ad8.ctex"]
+source_file="res://Art/Ant/TANKANT-Sheet.png"
+dest_files=["res://.godot/imported/TANKANT-Sheet.png-9b8458d07066313a21a217c878ac165f.ctex"]
 
 [params]
 

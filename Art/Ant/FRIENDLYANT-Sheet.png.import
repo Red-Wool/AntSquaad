@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm6ohuy586y6q"
-path="res://.godot/imported/AndGateOff.png-f68aff1c4e0e24c652405c9083a572e4.ctex"
+uid="uid://c4lgm8gfjccuq"
+path="res://.godot/imported/FRIENDLYANT-Sheet.png-12e9de1ad8dc59e62b00e043b15d6c55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AndGateOff.png"
-dest_files=["res://.godot/imported/AndGateOff.png-f68aff1c4e0e24c652405c9083a572e4.ctex"]
+source_file="res://Art/Ant/FRIENDLYANT-Sheet.png"
+dest_files=["res://.godot/imported/FRIENDLYANT-Sheet.png-12e9de1ad8dc59e62b00e043b15d6c55.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdt5yam5np5wb"
-path="res://.godot/imported/TANKANT-Sheet.png-95345daa54389bc94bf27bbf0ea1acd3.ctex"
+uid="uid://cm6ohuy586y6q"
+path="res://.godot/imported/AndGateOff.png-70fb09eaf6413a7f1b00d963d0fa3d7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TANKANT-Sheet.png"
-dest_files=["res://.godot/imported/TANKANT-Sheet.png-95345daa54389bc94bf27bbf0ea1acd3.ctex"]
+source_file="res://Art/TestArt/AndGateOff.png"
+dest_files=["res://.godot/imported/AndGateOff.png-70fb09eaf6413a7f1b00d963d0fa3d7e.ctex"]
 
 [params]
 

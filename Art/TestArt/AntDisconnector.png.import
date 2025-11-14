@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfl5mrth5ncsi"
-path="res://.godot/imported/EvilANT.png-ce9fd2d6715329d4a1f36b3d72e50399.ctex"
+uid="uid://dmblxgd47nd1c"
+path="res://.godot/imported/AntDisconnector.png-9e520cb102472a27478a643be120b360.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/EvilANT.png"
-dest_files=["res://.godot/imported/EvilANT.png-ce9fd2d6715329d4a1f36b3d72e50399.ctex"]
+source_file="res://Art/TestArt/AntDisconnector.png"
+dest_files=["res://.godot/imported/AntDisconnector.png-9e520cb102472a27478a643be120b360.ctex"]
 
 [params]
 

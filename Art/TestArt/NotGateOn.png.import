@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvud8crnldmpt"
-path="res://.godot/imported/follower_ant-Sheet.png-ddb84ce596a7c26bd475a8b090e47ee1.ctex"
+uid="uid://cssrb10nxicr1"
+path="res://.godot/imported/NotGateOn.png-6604c215857fc321a18bacca5df42321.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/follower_ant-Sheet.png"
-dest_files=["res://.godot/imported/follower_ant-Sheet.png-ddb84ce596a7c26bd475a8b090e47ee1.ctex"]
+source_file="res://Art/TestArt/NotGateOn.png"
+dest_files=["res://.godot/imported/NotGateOn.png-6604c215857fc321a18bacca5df42321.ctex"]
 
 [params]
 

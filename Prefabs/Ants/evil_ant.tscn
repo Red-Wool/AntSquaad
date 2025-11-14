@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://utp8mun0a3kn"]
 
 [ext_resource type="Script" uid="uid://cp625cyfiy0w1" path="res://Scripts/Ants/EvilAnt.gd" id="1_6ytj3"]
-[ext_resource type="Texture2D" uid="uid://dopwbu5kfpu0a" path="res://Art/EVILANT-Sheet.png" id="2_bxwac"]
+[ext_resource type="Texture2D" uid="uid://dopwbu5kfpu0a" path="res://Art/Ant/EVILANT-Sheet.png" id="2_bxwac"]
 [ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_mnre2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ogtmc"]

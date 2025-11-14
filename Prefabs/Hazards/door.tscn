@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://btboenebpvyih"]
 
-[ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Scripts/Door.gd" id="1_pk8b3"]
+[ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Scripts/Hazards/Door.gd" id="1_pk8b3"]
 
 [sub_resource type="Gradient" id="Gradient_thpdj"]
 

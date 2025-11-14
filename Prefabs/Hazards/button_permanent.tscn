@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://befpmjefwsgwd"]
 
-[ext_resource type="Script" uid="uid://b68xwc4j8xgr2" path="res://Scripts/ButtonPermanent.gd" id="1_7tvcp"]
+[ext_resource type="Script" uid="uid://b68xwc4j8xgr2" path="res://Scripts/Hazards/ButtonPermanent.gd" id="1_7tvcp"]
 [ext_resource type="Texture2D" uid="uid://ct08srf2c5np2" path="res://Art/ButtonOff.png" id="2_21xfg"]
 [ext_resource type="Texture2D" uid="uid://dgc4da3emag7" path="res://Art/ButtonOn.png" id="3_q3ajp"]
 [ext_resource type="Texture2D" uid="uid://gf4sjtk1u7vh" path="res://Art/ButtonStandOff.png" id="4_5b8ov"]

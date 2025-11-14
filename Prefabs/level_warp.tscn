@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://k4ir7e5t0vw6"]
 
-[ext_resource type="Script" uid="uid://doc7rhja2fed6" path="res://Scripts/LevelWarp.gd" id="1_p050j"]
+[ext_resource type="Script" uid="uid://doc7rhja2fed6" path="res://Scripts/Hazards/LevelWarp.gd" id="1_p050j"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_amemq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esy05"]

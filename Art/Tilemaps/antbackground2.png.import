@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dopwbu5kfpu0a"
-path="res://.godot/imported/EVILANT-Sheet.png-d2ce892d0772f2c4862a92b90db2b8cc.ctex"
+uid="uid://7hvn23rfp2eb"
+path="res://.godot/imported/antbackground2.png-5485119cc2630e2d980ab0e92664e627.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/EVILANT-Sheet.png"
-dest_files=["res://.godot/imported/EVILANT-Sheet.png-d2ce892d0772f2c4862a92b90db2b8cc.ctex"]
+source_file="res://Art/Tilemaps/antbackground2.png"
+dest_files=["res://.godot/imported/antbackground2.png-5485119cc2630e2d980ab0e92664e627.ctex"]
 
 [params]
 

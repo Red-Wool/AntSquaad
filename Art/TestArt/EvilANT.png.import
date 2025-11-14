@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d25hbvetof7de"
-path="res://.godot/imported/otherANT.png-f8c1529dc2741b484b67fb1020d4d165.ctex"
+uid="uid://dfl5mrth5ncsi"
+path="res://.godot/imported/EvilANT.png-4201af5d7819899452f99eb31ef1a26e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/otherANT.png"
-dest_files=["res://.godot/imported/otherANT.png-f8c1529dc2741b484b67fb1020d4d165.ctex"]
+source_file="res://Art/TestArt/EvilANT.png"
+dest_files=["res://.godot/imported/EvilANT.png-4201af5d7819899452f99eb31ef1a26e.ctex"]
 
 [params]
 

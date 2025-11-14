@@ -3,6 +3,8 @@ shader_type canvas_item;
 uniform float pixelSize = .5;
 uniform sampler2D screen : hint_screen_texture, filter_nearest_mipmap;
 
+uniform float moveTimer;
+
 varying vec2 localPos;
 varying vec2 worldPos;
 
@@ -23,10 +25,13 @@ void fragment() {
 	uv = floor(uv * pixelSize) / pixelSize;
 	luv = floor(luv * pixelSize) / pixelSize;
 	
+	float t = (floor(TIME*12.)/12.);
+	
 	vec2 auv = floor(worldPos*.5)/.5;
 	auv*=.5;
 	//suv += normalize(ruv)*TIME;
-	auv += (floor(TIME*12.)/12.)*2.;
+	auv += t*0.;
+	//auv += .5;
 	auv = fract(auv*.2);
 	auv -= .5;
 	
