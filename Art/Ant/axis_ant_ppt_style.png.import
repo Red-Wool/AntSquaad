@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cssrb10nxicr1"
-path="res://.godot/imported/NotGateOn.png-6471c76891bccc332ccad7ad673e08c1.ctex"
+uid="uid://cdb1yso31klhk"
+path="res://.godot/imported/axis_ant_ppt_style.png-975e65f9b9550e6ab19f583dc00e4c97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/NotGateOn.png"
-dest_files=["res://.godot/imported/NotGateOn.png-6471c76891bccc332ccad7ad673e08c1.ctex"]
+source_file="res://Art/Ant/axis_ant_ppt_style.png"
+dest_files=["res://.godot/imported/axis_ant_ppt_style.png-975e65f9b9550e6ab19f583dc00e4c97.ctex"]
 
 [params]
 

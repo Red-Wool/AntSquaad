@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bifoptoygllvi"
-path="res://.godot/imported/NotGateOff.png-a8b2d2154ef497ce84397ef2d5f9ea23.ctex"
+uid="uid://2l1ukr5xvb1n"
+path="res://.godot/imported/player_ant-Sheet.png-cafe32149a3bbaac7b666a54f5a83f29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/NotGateOff.png"
-dest_files=["res://.godot/imported/NotGateOff.png-a8b2d2154ef497ce84397ef2d5f9ea23.ctex"]
+source_file="res://Art/Ant/player_ant-Sheet.png"
+dest_files=["res://.godot/imported/player_ant-Sheet.png-cafe32149a3bbaac7b666a54f5a83f29.ctex"]
 
 [params]
 

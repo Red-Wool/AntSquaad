@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vjfue3ah3cx2"
-path="res://.godot/imported/AndGateOn.png-d7883490a80207c164c806d0d9d10f69.ctex"
+uid="uid://cqb5kjw8plhs2"
+path="res://.godot/imported/BlueTIlemap.png-44eaf1e7c6ac1bb007fe3ae6860cb6e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AndGateOn.png"
-dest_files=["res://.godot/imported/AndGateOn.png-d7883490a80207c164c806d0d9d10f69.ctex"]
+source_file="res://Art/Tilemaps/BlueTIlemap.png"
+dest_files=["res://.godot/imported/BlueTIlemap.png-44eaf1e7c6ac1bb007fe3ae6860cb6e3.ctex"]
 
 [params]
 

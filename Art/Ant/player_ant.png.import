@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmblxgd47nd1c"
-path="res://.godot/imported/AntDisconnector.png-aa8aeb59681563fa11bc13d37161325b.ctex"
+uid="uid://xfswcygwudyp"
+path="res://.godot/imported/player_ant.png-1f3410a54a3c03e73890f32a66d055aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/AntDisconnector.png"
-dest_files=["res://.godot/imported/AntDisconnector.png-aa8aeb59681563fa11bc13d37161325b.ctex"]
+source_file="res://Art/Ant/player_ant.png"
+dest_files=["res://.godot/imported/player_ant.png-1f3410a54a3c03e73890f32a66d055aa.ctex"]
 
 [params]
 

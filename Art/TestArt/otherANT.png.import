@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcy8r0f17stq8"
-path="res://.godot/imported/follower_ant.png-319d5eac6dadbd2cc13b0d30a2bcbffd.ctex"
+uid="uid://d25hbvetof7de"
+path="res://.godot/imported/otherANT.png-80b6e0ef77e2761d9eb3d0015cd95d4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/follower_ant.png"
-dest_files=["res://.godot/imported/follower_ant.png-319d5eac6dadbd2cc13b0d30a2bcbffd.ctex"]
+source_file="res://Art/TestArt/otherANT.png"
+dest_files=["res://.godot/imported/otherANT.png-80b6e0ef77e2761d9eb3d0015cd95d4a.ctex"]
 
 [params]
 

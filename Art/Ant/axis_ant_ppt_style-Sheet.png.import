@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q8ou2jprt3kj"
-path="res://.godot/imported/THEANT.png-1da91c370aedc19ae56a05d8e61fbc54.ctex"
+uid="uid://ku7pxrrwlbc5"
+path="res://.godot/imported/axis_ant_ppt_style-Sheet.png-a89793bff133e5c7a563e4938a334711.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/THEANT.png"
-dest_files=["res://.godot/imported/THEANT.png-1da91c370aedc19ae56a05d8e61fbc54.ctex"]
+source_file="res://Art/Ant/axis_ant_ppt_style-Sheet.png"
+dest_files=["res://.godot/imported/axis_ant_ppt_style-Sheet.png-a89793bff133e5c7a563e4938a334711.ctex"]
 
 [params]
 

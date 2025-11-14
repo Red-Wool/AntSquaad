@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2l1ukr5xvb1n"
-path="res://.godot/imported/player_ant-Sheet.png-58a926cd66add1ed3dbc3486e1d3dba8.ctex"
+uid="uid://bbgsjphdfkeve"
+path="res://.godot/imported/antbackground1.png-b8232449622650eae57ec3dba5ef1956.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/player_ant-Sheet.png"
-dest_files=["res://.godot/imported/player_ant-Sheet.png-58a926cd66add1ed3dbc3486e1d3dba8.ctex"]
+source_file="res://Art/Tilemaps/antbackground1.png"
+dest_files=["res://.godot/imported/antbackground1.png-b8232449622650eae57ec3dba5ef1956.ctex"]
 
 [params]
 

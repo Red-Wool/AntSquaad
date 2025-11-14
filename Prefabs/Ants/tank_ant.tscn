@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uhmqiy81ivls" path="res://Scripts/Ants/TankAnt.gd" id="1_sm6t3"]
 [ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_82a58"]
-[ext_resource type="Texture2D" uid="uid://ku7pxrrwlbc5" path="res://Art/axis_ant_ppt_style-Sheet.png" id="3_82a58"]
+[ext_resource type="Texture2D" uid="uid://ku7pxrrwlbc5" path="res://Art/Ant/axis_ant_ppt_style-Sheet.png" id="3_82a58"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sm2jg"]
 shader = ExtResource("2_82a58")
@@ -10,6 +10,21 @@ shader_parameter/outlineColor = Vector3(0.17, 0.03, 0.33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
+
+[sub_resource type="Animation" id="Animation_j7dpw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_sm2jg"]
 resource_name = "walk"
@@ -27,21 +42,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
-}
-
-[sub_resource type="Animation" id="Animation_j7dpw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fqi02"]

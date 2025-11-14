@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://psavh01l3pra"
-path="res://.godot/imported/NORMALANT-Sheet.png-44ad4798426165eb9f12d67121d21698.ctex"
+uid="uid://dopwbu5kfpu0a"
+path="res://.godot/imported/EVILANT-Sheet.png-b42a3474971323a93f298464177956d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/NORMALANT-Sheet.png"
-dest_files=["res://.godot/imported/NORMALANT-Sheet.png-44ad4798426165eb9f12d67121d21698.ctex"]
+source_file="res://Art/Ant/EVILANT-Sheet.png"
+dest_files=["res://.godot/imported/EVILANT-Sheet.png-b42a3474971323a93f298464177956d3.ctex"]
 
 [params]
 

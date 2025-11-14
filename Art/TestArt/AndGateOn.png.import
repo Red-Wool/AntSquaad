@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4lgm8gfjccuq"
-path="res://.godot/imported/FRIENDLYANT-Sheet.png-621b42e56c59deee776c0578b52d97ec.ctex"
+uid="uid://vjfue3ah3cx2"
+path="res://.godot/imported/AndGateOn.png-fc27e170fc042c97aa51a16a203e3eb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/FRIENDLYANT-Sheet.png"
-dest_files=["res://.godot/imported/FRIENDLYANT-Sheet.png-621b42e56c59deee776c0578b52d97ec.ctex"]
+source_file="res://Art/TestArt/AndGateOn.png"
+dest_files=["res://.godot/imported/AndGateOn.png-fc27e170fc042c97aa51a16a203e3eb1.ctex"]
 
 [params]
 

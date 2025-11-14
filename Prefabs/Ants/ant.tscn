@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd6cvtheif6h8" path="res://Scripts/Ants/Ant.gd" id="1_1hu8b"]
 [ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_0n13c"]
-[ext_resource type="Texture2D" uid="uid://dvud8crnldmpt" path="res://Art/follower_ant-Sheet.png" id="3_0n13c"]
+[ext_resource type="Texture2D" uid="uid://dvud8crnldmpt" path="res://Art/Ant/follower_ant-Sheet.png" id="3_0n13c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_engyf"]
 shader = ExtResource("2_0n13c")
@@ -10,6 +10,21 @@ shader_parameter/outlineColor = Vector3(0.17, 0.03, 0.33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
+
+[sub_resource type="Animation" id="Animation_engyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_0n13c"]
 resource_name = "walk"
@@ -27,21 +42,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
-}
-
-[sub_resource type="Animation" id="Animation_engyf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ikvw"]

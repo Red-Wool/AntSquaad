@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqm476yqfhkc6"]
 
 [ext_resource type="Script" uid="uid://jc7hma0fe55k" path="res://Scripts/Hazards/AndGate.gd" id="1_8tus5"]
-[ext_resource type="Texture2D" uid="uid://cm6ohuy586y6q" path="res://Art/AndGateOff.png" id="2_8tus5"]
-[ext_resource type="Texture2D" uid="uid://vjfue3ah3cx2" path="res://Art/AndGateOn.png" id="3_i3yt2"]
+[ext_resource type="Texture2D" uid="uid://cm6ohuy586y6q" path="res://Art/TestArt/AndGateOff.png" id="2_8tus5"]
+[ext_resource type="Texture2D" uid="uid://vjfue3ah3cx2" path="res://Art/TestArt/AndGateOn.png" id="3_i3yt2"]
 [ext_resource type="Texture2D" uid="uid://gf4sjtk1u7vh" path="res://Art/ButtonStandOff.png" id="4_iciao"]
 [ext_resource type="Texture2D" uid="uid://e148sk45hfex" path="res://Art/ButtonStandOn.png" id="5_qct3g"]
 

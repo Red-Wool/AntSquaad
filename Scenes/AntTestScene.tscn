@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://cikrmnmew8pgq"]
+[gd_scene load_steps=20 format=4 uid="uid://cikrmnmew8pgq"]
 
 [ext_resource type="PackedScene" uid="uid://c18jtshdl06ho" path="res://Prefabs/player_camera.tscn" id="1_eknry"]
 [ext_resource type="PackedScene" uid="uid://brja2korku7uu" path="res://Prefabs/Ants/player_ant.tscn" id="2_pbbgj"]
 [ext_resource type="PackedScene" uid="uid://bpfc8x26u7g2q" path="res://Prefabs/Ants/ant.tscn" id="3_d6agh"]
 [ext_resource type="PackedScene" uid="uid://utp8mun0a3kn" path="res://Prefabs/Ants/evil_ant.tscn" id="4_gi288"]
 [ext_resource type="Script" uid="uid://bt36nbe4br3r4" path="res://Scripts/Ants/AxisAnt.gd" id="5_2tscp"]
-[ext_resource type="Texture2D" uid="uid://dfl5mrth5ncsi" path="res://Art/EvilANT.png" id="6_8jn7p"]
+[ext_resource type="Texture2D" uid="uid://ku7pxrrwlbc5" path="res://Art/Ant/axis_ant_ppt_style-Sheet.png" id="6_eknry"]
 [ext_resource type="PackedScene" uid="uid://bd5k7sdj1ilhs" path="res://Prefabs/Ants/tank_ant.tscn" id="7_wrldj"]
 [ext_resource type="PackedScene" uid="uid://cu3thbcxg6vr8" path="res://Prefabs/Hazards/ant_disconnector.tscn" id="8_we0uh"]
 [ext_resource type="PackedScene" uid="uid://kc6rsd4q3abl" path="res://Prefabs/Hazards/kill_zone.tscn" id="9_eknry"]
@@ -16,9 +16,48 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4s6w"]
 size = Vector2(40, 40)
 
+[sub_resource type="Animation" id="Animation_twbd7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_akjbu"]
+resource_name = "walk"
+length = 0.41667086
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twbd7"]
+_data = {
+&"RESET": SubResource("Animation_twbd7"),
+&"walk": SubResource("Animation_akjbu")
+}
+
 [sub_resource type="Gradient" id="Gradient_thpdj"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.16862746, 0.05882353, 0.32941177, 1)
+colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7rwyu"]
 gradient = SubResource("Gradient_thpdj")
@@ -42,17 +81,24 @@ position = Vector2(291, -125)
 position = Vector2(-390, 84)
 
 [node name="AxisAnt" type="CharacterBody2D" parent="."]
-visible = false
+z_index = 10
 position = Vector2(181, 154)
 script = ExtResource("5_2tscp")
 speed_multiplier = Vector2(1, 0)
 
 [node name="Visual" type="Sprite2D" parent="AxisAnt"]
 texture_filter = 3
-texture = ExtResource("6_8jn7p")
+texture = ExtResource("6_eknry")
+hframes = 3
+vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="AxisAnt"]
 shape = SubResource("RectangleShape2D_e4s6w")
+
+[node name="Animation" type="AnimationPlayer" parent="AxisAnt"]
+libraries = {
+&"": SubResource("AnimationLibrary_twbd7")
+}
 
 [node name="TankAnt" parent="." instance=ExtResource("7_wrldj")]
 position = Vector2(-100, 122)
