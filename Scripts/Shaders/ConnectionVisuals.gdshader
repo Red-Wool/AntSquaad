@@ -27,17 +27,21 @@ void fragment() {
 	
 	float t = (floor(TIME*12.)/12.);
 	
-	float l = (sin(length(luv*.1)-TIME*1.)*.4+.6);
+	float l = sin(length(luv*.1)-TIME*1.);
+	float r = step(length(luv), moveTimer);
 	
 	vec2 auv = floor(worldPos*.5)/.5;
 	auv*=.5;
 	//suv += normalize(ruv)*TIME;
 	auv += t*0.;
-	auv += .5 * step(length(luv), moveTimer) * l;
+	auv += .5 * (l*.4+.6) * r;
 	auv = fract(auv*.2);
 	auv -= .5;
 	
-	float act = (1.-smoothstep(.25,.5,abs(auv.x))) * (1.-smoothstep(.25,.5,abs(auv.y)));
+	float lb = .25 + (l*.5+.5) * r * .149;
+	float ub = .5;
+	
+	float act = (1.-smoothstep(lb,ub,abs(auv.x))) * (1.-smoothstep(lb,ub,abs(auv.y)));
 
 	vec2 suv = ((canvas) * vec4(uv, 0, 1)).xy;
 	COLOR = textureLod(screen, suv * SCREEN_PIXEL_SIZE, 0.);
