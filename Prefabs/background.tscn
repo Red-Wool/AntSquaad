@@ -1,4 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://creggl1q6j7bn"]
+[gd_scene load_steps=5 format=3 uid="uid://creggl1q6j7bn"]
+
+[ext_resource type="Shader" uid="uid://b0frcw0m3grsk" path="res://Scripts/Shaders/BackgroundShader.gdshader" id="1_4a6i6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3dar"]
+shader = ExtResource("1_4a6i6")
 
 [sub_resource type="Gradient" id="Gradient_thpdj"]
 offsets = PackedFloat32Array(0)
@@ -11,4 +16,6 @@ height = 648
 
 [node name="Background" type="Sprite2D"]
 z_index = -10
+material = SubResource("ShaderMaterial_l3dar")
+scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_tr7fb")
