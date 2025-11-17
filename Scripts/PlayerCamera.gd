@@ -25,22 +25,22 @@ func _process(delta):
 	if !is_instance_valid(player_follow):
 		return
 	
-	var follow : Vector2 = player_follow.position
+	var follow : Vector2 = player_follow.global_position
 	var furthest_point_distance : float = 0
 	
 	for ant : Ant in player_follow.connected_ants:
 		if !is_instance_valid(ant):
 			continue
-		follow += ant.position
+		follow += ant.global_position
 		
-		if (position - ant.position).length() > furthest_point_distance:
-			furthest_point_distance = (position - ant.position).length()
+		if (global_position - ant.global_position).length() > furthest_point_distance:
+			furthest_point_distance = (global_position - ant.global_position).length()
 	
 	follow /= 1 + player_follow.connected_ants.size()
-	position = lerp(position, follow, delta * follow_speed)
+	global_position = lerp(global_position, follow, delta * follow_speed)
 	
 	if shake_timer > 0:
-		position += Vector2(randf_range(-shake_strength.x, shake_strength.x), randf_range(-shake_strength.y, shake_strength.y)) * (shake_timer/shake_time)
+		global_position += Vector2(randf_range(-shake_strength.x, shake_strength.x), randf_range(-shake_strength.y, shake_strength.y)) * (shake_timer/shake_time)
 		shake_timer -= delta
 	
 	zoom = lerp(zoom, Vector2.ONE / max(1, furthest_point_distance / zoom_distance) * (.5 if Input.is_action_pressed("zoom") else 1.), delta * zoom_speed) * (zoom_strength if zoom_timer > 0 else 1.)
