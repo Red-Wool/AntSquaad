@@ -50,7 +50,7 @@ func _physics_process(delta):
 		move_timer += delta
 	else:
 		animation.stop()
-		move_timer = lerp(move_timer, 0., delta*5.)
+		move_timer = lerp(move_timer, 0., delta*10.)
 	ant_connection_visual.material.set_shader_parameter("moveTimer", move_timer*400.)
 	
 	if Input.is_action_pressed("fun"):
