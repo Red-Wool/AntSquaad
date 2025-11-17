@@ -10,15 +10,18 @@ var output = false
 @onready var power_connector_prefab : PackedScene = preload("res://Prefabs/power_connection.tscn")
 
 func _ready():
-	for output in outputs:
-		output_indexes.append(output._add_input())
-		
+	
+	
+	for o in outputs:
+		output_indexes.append(o._add_input())
+		""" Auto Generate Wires
 		var power_connector : PowerConnectionDisplay = power_connector_prefab.instantiate()
 		add_child(power_connector)
 		power_connector.position = Vector2.ZERO
 		power_connector._create_display_power(self, output)
 		output_connection_displays.append(power_connector)
-		
+		"""
+	
 	call_deferred("_process_input")
 
 func _add_input():
