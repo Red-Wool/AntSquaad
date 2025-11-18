@@ -9,12 +9,16 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 uv = world_pos * .001;
+	vec2 uv = world_pos * .01;
 	vec2 fuv = fract(uv);
 	vec4 col;
-
-	col.rgb = vec3(1,1,0)*(1.-col.a);
-
+	float pct = step(fuv.x,.1) + step(fuv.y,.1);
+	
+	col.a = pct;
+	col.rgb = vec3(1,1,0)*(1.-col.a) + col.rgb * col.a;
+	col.a = 1.;
+	
+	COLOR = col;
 	// Called for every pixel the material is visible on.
 }
 
