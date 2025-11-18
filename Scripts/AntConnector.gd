@@ -61,6 +61,5 @@ func _death():
 	else:
 		error.global_position = mid_point
 	error.visible = true
-	
 	await get_tree().create_timer(.5).timeout
 	queue_free()

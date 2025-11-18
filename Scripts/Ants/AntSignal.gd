@@ -15,8 +15,8 @@ func _trigger_signal(ant : PlayerAnt, size : float = 200., time : float = 1.):
 	
 	await get_tree().create_timer(time).timeout
 	collision.disabled = true
-	get_tree().create_tween().tween_property(sprite.material, "shader_parameter/alpha", 0, .1)
-	await get_tree().create_timer(.1).timeout
+	get_tree().create_tween().tween_property(sprite.material, "shader_parameter/alpha", 0, .3)
+	await get_tree().create_timer(.3).timeout
 	queue_free()
 
 func _on_body_entered(body):
