@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8coqkp0iw74m"
+path="res://.godot/imported/Double Helix [XBfJKkfJZ6U].mp3-40db69cbd55f1d6e4b4f30f0153ba562.mp3str"
+
+[deps]
+
+source_file="res://Sound/Double Helix [XBfJKkfJZ6U].mp3"
+dest_files=["res://.godot/imported/Double Helix [XBfJKkfJZ6U].mp3-40db69cbd55f1d6e4b4f30f0153ba562.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

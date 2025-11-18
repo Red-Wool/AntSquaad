@@ -25,6 +25,10 @@ var move_timer : float
 
 signal ant_movement(movement : Vector2)
 
+func _ready():
+	if CheckpointManager._valid_checkpoint(get_tree().current_scene.name):
+		global_position = CheckpointManager._get_checkpoint()
+
 func _process(delta):
 	super(delta)
 	if Input.is_action_just_pressed("fun"):

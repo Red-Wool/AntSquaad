@@ -1,6 +1,6 @@
 extends Node
 
-var checkpoint_scene_name : String
+var checkpoint_scene_name : String = ""
 var checkpoint_location : Vector2
 
 func _valid_checkpoint(scene_name : String) -> bool:

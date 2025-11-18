@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="AntSquad"
-run/main_scene="uid://cikrmnmew8pgq"
+run/main_scene="uid://dpsqfku1scxn2"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://q8ou2jprt3kj"
 
 [autoload]
 
 CameraManager="*res://Scripts/CameraManager.gd"
+CheckpointManager="*res://Scripts/CheckpointManager.gd"
 
 [display]
 

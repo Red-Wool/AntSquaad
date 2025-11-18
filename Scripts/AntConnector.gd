@@ -25,7 +25,7 @@ func _ready():
 	square.scale = Vector2.ZERO
 	get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC).tween_property(square, "scale", Vector2.ONE*1.2, 1)
 
-func _process(delta):
+func _physics_process(delta):
 	if is_instance_valid(connected_ant) and !dead:
 		#180 * delta
 		square.global_position = connected_ant.global_position

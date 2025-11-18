@@ -8,14 +8,30 @@ void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
-void fragment() {
-	vec2 uv = world_pos * .01;
-	vec2 fuv = fract(uv);
-	vec4 col;
-	float pct = step(fuv.x,.1) + step(fuv.y,.1);
+float grid(vec2 uv, float size, float time){
+	uv *= size;
+	uv += TIME * time;
+	uv.x += tan(uv.y*1.+TIME*.2+sin(uv.x+TIME*time)*2.)*.01;
+	uv = fract(uv);
 	
-	col.a = pct;
-	col.rgb = vec3(1,1,0)*(1.-col.a) + col.rgb * col.a;
+	return min(step(uv.x,.1) + step(uv.y,.1), 1.);
+}
+
+void fragment() {
+	vec2 uv = world_pos;
+	uv = floor((uv) * 8.) / 8.;
+	uv.x += tan(uv.y*1.1+TIME*1.)*.01;
+	
+	
+	uv *= .01;
+	vec4 col;
+	float pct1 = grid(uv, 8., .11);
+	float pct2 = grid(uv, 16., .051);
+	float pct3 = grid(uv, 32., .0251);
+	float pct4 = grid(uv, 64., .01251);
+	
+	col.a = min(pct1+pct2-pct3+pct4,1.);
+	col.rgb = vec3(.17,.06,.33)*(1.-col.a) + vec3(.17,.06,.33)*.1 * col.a;
 	col.a = 1.;
 	
 	COLOR = col;
