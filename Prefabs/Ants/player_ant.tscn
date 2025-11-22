@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://brja2korku7uu"]
+[gd_scene load_steps=18 format=3 uid="uid://brja2korku7uu"]
 
 [ext_resource type="Script" uid="uid://utnppr4ebt26" path="res://Scripts/Ants/PlayerAnt.gd" id="1_61ujp"]
 [ext_resource type="Shader" uid="uid://dpxu5qrdwmj7r" path="res://Scripts/Shaders/OutLineShader.gdshader" id="2_akjbu"]
 [ext_resource type="Texture2D" uid="uid://2l1ukr5xvb1n" path="res://Art/Ant/player_ant-Sheet.png" id="3_akjbu"]
 [ext_resource type="AudioStream" uid="uid://6r1ervenp0q8" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Connected/zapsplat_science_fiction_computer_tone_chime_ping_114862.mp3" id="3_i8eq4"]
 [ext_resource type="AudioStream" uid="uid://dvdnwb7yv42uj" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Ant Signal/zapsplat_science_fiction_computer_tone_prompt_short_114877.mp3" id="4_2n0ci"]
+[ext_resource type="AudioStream" uid="uid://k8wckrd0asse" path="res://Sound/ANTWALK.mp3" id="4_d7kxg"]
 [ext_resource type="AudioStream" uid="uid://f2yfakgqmiud" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/zapsplat_science_fiction_computer_tone_dry_beep_button_001_114863.mp3" id="5_nhsor"]
 [ext_resource type="Shader" uid="uid://c1hhakw2uffxy" path="res://Scripts/Shaders/ConnectionVisuals.gdshader" id="6_5ycmv"]
 [ext_resource type="AudioStream" uid="uid://ppsoktn8cytn" path="res://Sound/AntSounds-20251104T181509Z-1-001/AntSounds/Toggle Press Off/zapsplat_science_fiction_computer_tone_negative_critical_error_001_114866.mp3" id="6_x7tw5"]
@@ -21,7 +22,7 @@ size = Vector2(40, 40)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ycmv"]
 shader = ExtResource("6_5ycmv")
 shader_parameter/pixelSize = 0.5
-shader_parameter/moveTimer = 0.0
+shader_parameter/moveTimer = 100.0
 
 [sub_resource type="Animation" id="Animation_twbd7"]
 length = 0.001
@@ -77,6 +78,11 @@ vframes = 2
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e4s6w")
+
+[node name="WalkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_d7kxg")
+volume_db = -1.0
+pitch_scale = 1.3
 
 [node name="AntConnectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_i8eq4")

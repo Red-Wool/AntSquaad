@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://btboenebpvyih"]
+[gd_scene load_steps=6 format=3 uid="uid://btboenebpvyih"]
 
 [ext_resource type="Script" uid="uid://d0swebso6v07x" path="res://Scripts/Hazards/Door.gd" id="1_pk8b3"]
 [ext_resource type="Texture2D" uid="uid://dkgntfs4c7703" path="res://Art/FIREWALL_LOCKED.png" id="2_lbokj"]
+[ext_resource type="AudioStream" uid="uid://dg1jhgfhdpkej" path="res://Sound/AntDoorOpen.mp3" id="3_d1lif"]
+[ext_resource type="AudioStream" uid="uid://bqdjn4hodfjpl" path="res://Sound/AntDoorClose.mp3" id="4_p0x2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0tna"]
 size = Vector2(60, 120)
@@ -15,3 +17,9 @@ texture = ExtResource("2_lbokj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u0tna")
+
+[node name="OpenDoorSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d1lif")
+
+[node name="CloseDoorSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_p0x2n")

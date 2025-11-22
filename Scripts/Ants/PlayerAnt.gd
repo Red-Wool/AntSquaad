@@ -9,6 +9,7 @@ class_name PlayerAnt extends BaseAnt
 @onready var ant_connection_visual : CanvasGroup = $AntConnectionVisual
 @onready var ant_connection_hexagon : Sprite2D = $AntConnectionVisual/Hexagon
 
+@onready var walk_sfx : AudioStreamPlayer2D = $WalkSFX
 @onready var ant_signal_sfx : AudioStreamPlayer2D = $AntSignalSFX
 @onready var ant_connect_sfx : AudioStreamPlayer2D = $AntConnectSFX
 @onready var ant_disconnect_sfx : AudioStreamPlayer2D = $AntDisconnectSFX
@@ -49,10 +50,14 @@ func _physics_process(delta):
 	ant_connection_hexagon.rotation_degrees += 60 * delta
 	
 	if move != Vector2.ZERO:
+		if !walk_sfx.playing:
+			walk_sfx.volume_db = -1 + connected_ants.size() * 2.
+			walk_sfx.play()
 		animation.play("walk")
 		visual.flip_h = move.x < 0
 		move_timer += delta
 	else:
+		walk_sfx.stop()
 		animation.stop()
 		move_timer = lerp(move_timer, 0., delta*10.)
 	ant_connection_visual.material.set_shader_parameter("moveTimer", move_timer*400.)
@@ -89,6 +94,7 @@ func _connect_ant(ant : Ant):
 		
 		ant_connect_sfx.play()
 		
+		walk_sfx.volume_db = -1 + connected_ants.size() * 2.
 		ant_connection_hexagon.scale = Vector2.ZERO
 		get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC).tween_property(ant_connection_hexagon, "scale", Vector2.ONE, 1)
 
@@ -102,7 +108,7 @@ func _connected_ant_death(ant : Ant):
 		connected_ants.remove_at(index)
 		ant_real_disconnect_sfx.play()
 		CameraManager._screen_shake(Vector2(15,15), .4)
-	
+	walk_sfx.volume_db = -1 + connected_ants.size() * 2.
 	if connected_ants.size() == 0:
 		get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).tween_property(ant_connection_hexagon, "scale", Vector2.ZERO, .5)
 
@@ -119,6 +125,7 @@ func _disconnect_ants():
 			ant_visual._death()
 	connected_ants.clear()
 	ant_disconnect_sfx.play()
+	walk_sfx.volume_db = -1 + connected_ants.size() * 2.
 	get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).tween_property(ant_connection_hexagon, "scale", Vector2.ZERO, .5)
 
 func _death():
